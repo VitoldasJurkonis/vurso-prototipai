@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="lt" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VURSO · Finansai · Vidutinis čekis</title>
+<style>
+:root{
+  --bg:#080d13;--surface:#111924;--surface-2:#16202d;--inset:#0c131c;
+  --border:#29374a;--border-2:#3a4c64;--text:#edf4ff;--soft:#c2cede;--muted:#8796aa;--faint:#68788e;
+  --blue:#62a7ff;--blue-strong:#3b82f6;--blue-soft:rgba(59,130,246,.15);
+  --green:#3dd2a0;--green-soft:rgba(61,210,160,.12);--purple:#aa8cf6;--purple-soft:rgba(170,140,246,.12);
+  --amber:#fbbf24;--amber-soft:rgba(251,191,36,.11);--red:#fb7185;--shadow:0 22px 70px rgba(0,0,0,.44);
+}
+html[data-theme="light"]{
+  --bg:#edf1f5;--surface:#ffffff;--surface-2:#f4f6f9;--inset:#f7f9fb;
+  --border:#d6dee8;--border-2:#bdc9d8;--text:#111827;--soft:#344154;--muted:#5d6a7a;--faint:#7b8795;
+  --blue:#2563eb;--blue-strong:#2563eb;--blue-soft:rgba(37,99,235,.10);
+  --green:#059669;--green-soft:rgba(5,150,105,.10);--purple:#7c3aed;--purple-soft:rgba(124,58,237,.09);
+  --amber:#d97706;--amber-soft:rgba(217,119,6,.09);--red:#dc2626;--shadow:0 18px 50px rgba(15,23,42,.15);
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}
+body{font-size:14px;line-height:1.45;letter-spacing:-.01em}
+button,input{font:inherit}.num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+button{cursor:pointer;color:inherit}.hidden{display:none!important}
+.topbar{position:sticky;top:0;z-index:20;height:72px;padding:0 34px;display:flex;align-items:center;justify-content:space-between;background:var(--bg);border-bottom:1px solid var(--border)}
+.top-left,.top-right,.nav,.theme{display:flex;align-items:center}.brand{font-size:21px;font-weight:850;letter-spacing:1px;margin-right:44px}.nav{gap:8px}
+.nav button{border:0;background:transparent;color:var(--muted);font-weight:700;padding:11px 14px;border-radius:10px}.nav button.active{color:var(--blue)}
+.theme{padding:3px;border:1px solid var(--border);background:var(--surface);border-radius:999px}.theme button{border:0;background:transparent;color:var(--muted);padding:6px 11px;border-radius:999px;font-size:12px}.theme button.active{background:#202b3b;color:#fff}
+.tenant{margin-left:14px;border:0;background:#f6f8fb;color:#172131;padding:8px 12px;border-radius:12px;display:flex;align-items:center;gap:9px;font-weight:750}.avatar{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--blue-strong);color:#fff}
+.page{max-width:1440px;margin:0 auto;padding:28px 26px 70px}.page-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:20px}.page-head h1{margin:0;font-size:32px;line-height:1.1}.page-head p{margin:7px 0 0;color:var(--muted)}
+.module-nav{display:flex;gap:7px}.module-nav button{border:1px solid var(--border);background:var(--surface);color:var(--muted);padding:10px 18px;border-radius:11px;font-weight:750}.module-nav button.active{background:var(--blue-soft);border-color:rgba(98,167,255,.5);color:var(--blue)}
+.module-nav button:disabled{opacity:.5;cursor:not-allowed}
+.module{background:var(--surface);border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow);overflow:hidden}.module-head{padding:20px 22px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:22px;background:var(--inset)}
+.module-head h2{margin:0;font-size:21px}.module-head p{margin:5px 0 0;color:var(--muted)}
+.segment-tabs{display:flex;align-items:center;padding:4px;background:var(--surface-2);border:1px solid var(--border);border-radius:999px;gap:3px}.segment-tab{border:0;background:transparent;color:var(--muted);padding:9px 17px;border-radius:999px;font-size:13px;font-weight:750;min-width:96px}.segment-tab.active{background:var(--blue-strong);color:#fff;box-shadow:0 0 20px rgba(59,130,246,.22)}
+.content{padding:22px}.revenue-hero{display:grid;grid-template-columns:minmax(0,1.9fr) .7fr .8fr;gap:0;background:var(--inset);border:1px solid var(--border);border-radius:15px;padding:24px 26px;margin-bottom:20px}.revenue-main{padding-right:26px}.eyebrow{font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--faint);font-weight:850}.revenue-main strong{display:block;font-size:48px;line-height:1.05;margin-top:15px}.revenue-main p{margin:10px 0 0;color:var(--muted)}.hero-fact{border-left:1px solid var(--border);padding:7px 24px}.hero-fact span{display:block;color:var(--muted);font-size:12px}.hero-fact strong{display:block;font-size:28px;margin-top:8px}.hero-fact.period strong{font-size:19px;color:var(--blue)}
+.section-label{margin:0 0 12px;font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--faint);font-weight:850}.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:20px}.metric{background:var(--inset);border:1px solid var(--border);border-radius:15px;padding:18px;min-width:0}.metric h3{font-size:16px;margin:0}.metric-note{font-size:12px;color:var(--muted);margin:5px 0 17px;min-height:34px}.split{display:flex;align-items:center;gap:9px;padding:8px 0}.dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}.split span{color:var(--muted);flex:1}.split strong{font-size:13px;white-space:nowrap}.stacked{height:10px;border-radius:99px;background:var(--surface-2);overflow:hidden;display:flex;margin:4px 0 12px}.stacked i{height:100%;display:block}.big{font-size:34px;font-weight:850;letter-spacing:-.8px;margin-top:20px}.formula{color:var(--muted);font-size:12px;margin-top:8px}
+.aov-card{position:relative;border-color:rgba(98,167,255,.65);background:linear-gradient(145deg,var(--blue-soft),var(--inset));transition:transform .18s,border-color .18s,box-shadow .18s;cursor:pointer}.aov-card:hover{transform:translateY(-3px);border-color:var(--blue);box-shadow:0 14px 36px rgba(0,0,0,.22)}.aov-card:focus-visible{outline:3px solid rgba(98,167,255,.4);outline-offset:3px}.aov-card .cta{display:flex;align-items:center;gap:7px;color:var(--blue);font-weight:800;margin-top:19px;font-size:13px}.aov-card .cta b{font-size:17px}.aov-card::after{content:"↗";position:absolute;right:16px;top:15px;color:var(--blue);font-size:18px}
+.document-card .split{align-items:flex-start;flex-wrap:wrap}.document-card .split>span{flex-basis:90px}.document-card .split strong{margin-left:auto}.document-missing{font-size:12px;color:var(--muted);margin:12px 0 0}
+.lower{display:grid;grid-template-columns:1.25fr .75fr;gap:14px}.list-panel{background:var(--inset);border:1px solid var(--border);border-radius:15px;padding:18px}.list-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:15px}.list-head h3{margin:0;font-size:16px}.list-head p{color:var(--muted);margin:4px 0 0;font-size:12px}.badge{padding:5px 9px;border-radius:999px;background:var(--blue-soft);color:var(--blue);font-size:11px;font-weight:800;white-space:nowrap}.bar-row{display:grid;grid-template-columns:minmax(150px,.9fr) 65px minmax(140px,1.2fr) auto;align-items:center;gap:12px;min-height:42px}.bar-row>span:first-child{font-weight:650;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.count{font-size:12px;color:var(--muted)}.track{height:7px;background:var(--surface-2);border-radius:99px;overflow:hidden}.fill{height:100%;background:var(--blue);border-radius:inherit}.bar-row strong{white-space:nowrap}.info-lines{display:grid;gap:11px}.info-line{padding:12px 0;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:14px}.info-line:first-child{border-top:0}.info-line span{color:var(--muted)}
+.employee-panel{margin-top:14px}.employee-row{display:grid;grid-template-columns:minmax(150px,.75fr) minmax(220px,1.65fr) auto;align-items:center;gap:14px;min-height:44px}.employee-name{font-weight:700}.employee-row strong{white-space:nowrap;text-align:right}.employee-note{margin:13px 0 0;padding-top:13px;border-top:1px solid var(--border);color:var(--muted);font-size:12px}
+
+/* Analysis overlay */
+.overlay{position:fixed;inset:0;z-index:80;background:rgba(2,6,11,.78);backdrop-filter:blur(10px);overflow:auto;padding:26px}.dialog{max-width:1480px;margin:0 auto;background:var(--surface);border:1px solid var(--border-2);border-radius:22px;box-shadow:0 28px 100px rgba(0,0,0,.58);overflow:hidden}.dialog-head{position:sticky;top:-26px;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 24px;background:var(--surface);border-bottom:1px solid var(--border)}.dialog-title{display:flex;align-items:center;gap:15px}.back{width:44px;height:44px;border-radius:11px;background:var(--surface-2);border:1px solid var(--border-2);font-size:24px;color:var(--soft)}.dialog-title .crumb{font-size:11px;color:var(--blue);font-weight:850;letter-spacing:.1em;text-transform:uppercase}.dialog-title h2{font-size:25px;margin:3px 0 0}.dialog-head-right{display:flex;align-items:center;gap:14px}.period-pill{border:1px solid var(--border);background:var(--inset);color:var(--muted);padding:10px 13px;border-radius:10px}.close{width:42px;height:42px;border-radius:10px;border:1px solid var(--border);background:var(--inset);color:var(--muted);font-size:23px}.dialog-body{padding:22px 24px 26px}.dialog-top{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:18px}.dialog-top p{margin:0;color:var(--muted);font-size:12px}
+.aov-hero{display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:14px;padding:20px;background:linear-gradient(145deg,rgba(59,130,246,.18),rgba(13,22,34,.7));border:1px solid rgba(98,167,255,.38);border-radius:17px;margin-bottom:22px}.aov-main{padding:10px}.aov-main .value{font-size:50px;font-weight:850;line-height:1.05;margin:14px 0 7px}.aov-main p{color:var(--muted);margin:0}.part-card{background:var(--inset);border:1px solid var(--border);border-radius:13px;padding:17px}.part-card.services{border-color:rgba(98,167,255,.5)}.part-card.parts{border-color:rgba(170,140,246,.5)}.part-title{display:flex;align-items:center;gap:9px;color:var(--soft);font-weight:750}.part-card .value{font-size:30px;font-weight:850;margin-top:19px}.part-card p{color:var(--muted);font-size:12px;margin:6px 0 0}.share{margin-top:18px;display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:12px}.share strong{color:var(--text)}
+.scenario-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:14px}.scenario-head h3{font-size:22px;margin:0}.scenario-head p{margin:5px 0 0;color:var(--muted)}.reset{border:0;background:transparent;color:var(--blue);font-weight:800;padding:8px}.scenario-grid{display:grid;grid-template-columns:2fr 1fr;gap:14px}.lever-box,.volume-box{background:var(--inset);border:1px solid var(--border);border-radius:16px;padding:18px}.box-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:17px}.step-no{width:31px;height:31px;display:grid;place-items:center;border-radius:9px;background:var(--blue-soft);color:var(--blue);font-weight:850}.box-head h4{font-size:17px;margin:2px 0 0}.box-head p{color:var(--muted);font-size:12px;margin:4px 0 0}.lever-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.control-card{background:var(--surface);border:1px solid var(--border);border-radius:13px;padding:15px}.control-card.service{border-color:rgba(98,167,255,.58)}.control-card.parts{border-color:rgba(170,140,246,.55)}.control-label{display:flex;align-items:center;justify-content:space-between;gap:8px;font-weight:750}.control-label small{font-size:10px;background:var(--green-soft);color:var(--green);padding:4px 7px;border-radius:999px}.control-card>p{color:var(--muted);font-size:12px;margin:5px 0 12px}.stepper{display:grid;grid-template-columns:44px minmax(105px,1fr) 44px;gap:8px}.stepper button{height:48px;border:1px solid var(--border);background:var(--inset);border-radius:9px;font-size:22px;color:var(--muted)}.stepper input{width:100%;height:48px;border:1px solid var(--border-2);background:var(--inset);color:var(--text);border-radius:9px;text-align:center;font-size:19px;font-weight:850;outline:none}.stepper input:focus{border-color:var(--blue)}.control-result{color:var(--blue);font-size:12px;font-weight:750;margin-top:11px}.parts .control-result{color:var(--purple)}
+.volume-box .stepper{margin-top:28px}.volume-now{color:var(--muted);font-size:12px;margin-top:12px}.calculation{display:grid;grid-template-columns:1fr 32px 1fr 32px 1.15fr 32px 1.15fr;align-items:stretch;gap:6px;margin-top:18px}.calc{background:var(--inset);border:1px solid var(--border);border-radius:13px;padding:14px;min-width:0}.calc.blue{border-color:rgba(98,167,255,.45)}.calc.purple{border-color:rgba(170,140,246,.48)}.calc.result-calc{background:var(--blue-soft);border-color:rgba(98,167,255,.45)}.calc.revenue{background:var(--green-soft);border-color:rgba(61,210,160,.42)}.calc span{font-size:10px;color:var(--muted);font-weight:850;letter-spacing:.07em;text-transform:uppercase}.calc strong{display:block;font-size:19px;margin-top:10px;white-space:nowrap}.calc small{display:block;color:var(--muted);margin-top:8px}.arrow{display:grid;place-items:center;color:var(--faint);font-size:25px}
+.scenario-result{display:grid;grid-template-columns:1fr 64px 1fr 1.15fr;align-items:stretch;background:linear-gradient(145deg,var(--green-soft),var(--inset));border:1px solid rgba(61,210,160,.42);border-radius:16px;padding:18px;margin-top:18px}.result-block{padding:5px 12px}.result-block+.result-block{border-left:1px solid var(--border)}.result-block span{display:block;color:var(--muted);font-size:11px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.result-block strong{display:block;font-size:29px;margin-top:10px}.result-block small{display:block;color:var(--muted);margin-top:7px}.result-arrow{display:grid;place-items:center;color:var(--muted);font-size:30px}.gain strong{color:var(--green);font-size:36px}.effects{display:grid;gap:5px;margin-top:9px}.effects div{display:flex;justify-content:space-between;gap:16px;color:var(--muted);font-size:11px}.effects b{color:var(--soft)}
+.dialog-foot{display:flex;align-items:center;padding:17px 24px;border-top:1px solid var(--border);background:var(--inset)}.assumption{color:var(--muted);font-size:12px}
+body.modal-open{overflow:hidden}
+@media(max-width:1050px){.grid4{grid-template-columns:1fr 1fr}.lower{grid-template-columns:1fr}.scenario-grid{grid-template-columns:1fr}.calculation{grid-template-columns:1fr 24px 1fr}.calc.result-calc,.calc.revenue{grid-column:auto}.scenario-result{grid-template-columns:1fr 48px 1fr}.scenario-result .gain{grid-column:1/-1;border-left:0;border-top:1px solid var(--border);margin-top:12px;padding-top:16px}}
+@media(max-width:760px){.topbar{padding:0 14px}.nav,.theme,.tenant span:last-child{display:none}.brand{margin:0}.page{padding:18px 10px 40px}.page-head,.module-head,.dialog-top,.scenario-head,.dialog-foot{align-items:flex-start;flex-direction:column}.module-nav{width:100%}.module-nav button{flex:1}.segment-tabs{width:100%}.segment-tab{flex:1;min-width:0;padding:9px 7px}.revenue-hero{grid-template-columns:1fr}.revenue-main{padding:0 0 18px}.hero-fact{border-left:0;border-top:1px solid var(--border);padding:16px 0}.grid4{grid-template-columns:1fr}.bar-row{grid-template-columns:minmax(0,1fr) auto}.bar-row .count{grid-column:1}.bar-row .track{grid-column:1/-1}.overlay{padding:0}.dialog{border-radius:0;border-left:0;border-right:0;min-height:100vh}.dialog-head{top:0;padding:13px}.dialog-head-right .period-pill{display:none}.dialog-title h2{font-size:19px}.dialog-body{padding:14px}.aov-hero{grid-template-columns:1fr}.lever-grid{grid-template-columns:1fr}.calculation{grid-template-columns:1fr}.arrow{height:22px;transform:rotate(90deg)}.scenario-result{grid-template-columns:1fr}.result-arrow{height:30px;transform:rotate(90deg)}.result-block+.result-block{border-left:0;border-top:1px solid var(--border);margin-top:8px;padding-top:14px}}
+</style>
+<link rel="stylesheet" href="vurso-finansai-analitika.css">
+</head>
+<body>
+<nav class="topbar">
+  <div class="top-left">
+    <div class="brand">VURSO</div>
+    <div class="nav"><button>Planuoklis</button><button>Operaciniai</button><button class="active">Finansai</button></div>
+  </div>
+  <div class="top-right">
+    <div class="theme" aria-label="Spalvų tema"><button data-theme-value="light">Šviesi</button><button class="active" data-theme-value="dark">Tamsi</button></div>
+    <button class="tenant"><span class="avatar">V</span><span>VURSO servisas ↗</span></button>
+  </div>
+</nav>
+
+<main class="page">
+  <header class="page-head">
+    <div><h1>Finansai</h1><p>2026 m. rugpjūtis · užbaigti užsakymai · sumos be PVM</p></div>
+    <div class="module-nav" aria-label="Finansų moduliai"><button class="active">Pajamos</button><button disabled title="Išlaidų modulis šiame Pajamų prototipe neįjungtas">Išlaidos</button><button disabled title="Pelno modulis šiame Pajamų prototipe neįjungtas">Pelnas</button></div>
+  </header>
+  <p class="demo-notice">Demonstracinis modelis. Nauji juodraščių pjūviai, gamintojai, tiesioginių kaštų paskirstymas ir ankstesni mėnesiai užpildyti pavyzdiniais duomenimis.</p>
+  <section class="module" aria-labelledby="incomeTitle">
+    <header class="module-head">
+      <div><h2 id="incomeTitle">Pajamos</h2><p>Rezultatas, pajamų įforminimas ir augimo tempas</p></div>
+      <div class="segment-tabs" aria-label="Klientų pjūvis">
+        <button class="segment-tab active" data-view="all" aria-pressed="true">Visi klientai</button>
+        <button class="segment-tab" data-view="b2b" aria-pressed="false">B2B</button>
+        <button class="segment-tab" data-view="b2c" aria-pressed="false">B2C</button>
+        <button class="segment-tab compare-tab" data-view="compare" aria-pressed="false">B2B ↔ B2C</button>
+      </div>
+    </header>
+    <div class="content">
+      <div id="dashboardView">
+        <div class="revenue-hero">
+          <div class="revenue-main"><div class="eyebrow"><span data-bind="segmentLabel">Visi klientai</span> · užbaigtų užsakymų pajamos</div><strong class="num" data-bind="revenue">10 717 €</strong><div class="hero-delta" id="revenueMonthDelta"></div><p>Atliktų darbų vertė. Apmokėjimo būsena vertinama atskirai.</p></div>
+          <div class="hero-fact"><span>Užbaigti užsakymai</span><strong class="num" data-bind="orders">41</strong><div class="share-small" id="orderShare"></div><div class="hero-delta" id="ordersMonthDelta"></div></div>
+          <div class="hero-fact period"><span>Pasirinktas laikotarpis</span><strong>Rugpjūtis</strong><div class="share-small">2026 m.</div></div>
+        </div>
+        <p class="section-label">Pajamų struktūra ir įforminimas</p>
+        <div class="grid4">
+          <article class="metric">
+            <h3>Klientų tipas</h3><p class="metric-note" id="clientTypeNote">Dalis nuo visų šio mėnesio pajamų</p>
+            <div class="stacked" id="clientTypeBar"></div><div id="clientBreakdown"></div>
+          </article>
+          <article class="metric">
+            <h3>Pajamų sudėtis</h3><p class="metric-note">Suma ir dalis nuo pasirinkto pjūvio pajamų</p>
+            <div class="stacked"><i id="serviceBar" style="background:var(--blue)"></i><i id="partsBar" style="background:var(--purple)"></i></div>
+            <div class="split"><i class="dot" style="background:var(--blue)"></i><span>Paslaugos</span><strong class="num" data-bind="services"></strong></div>
+            <div class="split"><i class="dot" style="background:var(--purple)"></i><span>Detalės</span><strong class="num" data-bind="parts"></strong></div>
+            <div class="mini-change" id="partsCostNote"></div>
+          </article>
+          <article class="metric aov-card" id="openAov" role="button" tabindex="0" aria-haspopup="dialog">
+            <h3>Vidutinis čekis</h3><p class="metric-note">Vieno užbaigto užsakymo vertė</p>
+            <div class="big num" data-bind="aov"></div><div class="formula"><span data-bind="revenuePlain"></span> ÷ <span data-bind="ordersFormula"></span></div>
+            <div class="mini-change" id="aovMonthDelta"></div>
+            <div class="cta">Peržiūrėti ir simuliuoti <b>→</b></div>
+          </article>
+          <article class="metric document-card" id="documentCard">
+            <h3>Pajamos pagal dokumentą</h3><p class="metric-note">Dalis nuo pasirinkto pjūvio pajamų</p>
+            <div class="stacked" id="documentBar" role="img"><i id="invoicedBar" style="background:var(--green)"></i><i id="draftBar" style="background:var(--red)"></i></div>
+            <div class="split document-normal"><i class="dot" style="background:var(--green)"></i><span>Išrašyta su S.F.</span><strong class="num" id="invoicedRevenue"></strong></div>
+            <button class="draft-total" id="openDraftTotal" aria-haspopup="dialog"><span class="draft-label">Liko juodraštyje</span><strong class="num" id="draftRevenue"></strong><span class="draft-caption">Peržiūrėti užbaigtus užsakymus →</span></button>
+            <div class="mini-change" id="documentMonthDelta"></div>
+            <span class="critical-badge hidden" id="documentCritical">JUODRAŠČIAI VIRŠIJA 50 %</span>
+          </article>
+        </div>
+        <div class="focus-strip" id="focusStrip"></div>
+
+        <section class="analysis-panel" aria-labelledby="serviceTitle">
+          <header class="analysis-head"><div><h3 id="serviceTitle">Paslaugos ir darbų deriniai, sudarantys 80 % paslaugų pajamų</h3><p>Pajamų dalis – nuo visų pasirinkto pjūvio paslaugų. Juodraščių dalis – nuo tos eilutės pajamų.</p></div><div class="analysis-actions"><span class="badge" id="serviceCoverage"></span><div class="sort-buttons" data-sort-kind="services"><button class="active" data-sort="revenue">Pagal pajamas</button><button data-sort="draft">Pagal juodraščius</button></div></div></header>
+          <table class="analysis-table" aria-label="Paslaugų pajamų ir juodraščių analizė"><thead><tr><th>Paslauga / darbų derinys</th><th>Atlikimai</th><th>Pajamos · dalis</th><th>Su S.F.</th><th>Liko juodraštyje</th></tr></thead><tbody id="serviceRows"></tbody></table>
+          <footer class="analysis-foot"><p>Atlikimų dalis skaičiuojama nuo visų paslaugų atlikimų; vienas užsakymas gali turėti kelis darbus.</p><button class="plain-button" id="toggleServices">Rodyti visas paslaugas</button></footer>
+          <div class="unit-summary"><div><span>Paslaugų dalis čekyje</span><strong data-bind="servicePerOrder"></strong><small data-bind="serviceShare"></small></div><div><span>Detalių dalis čekyje</span><strong data-bind="partsPerOrder"></strong><small data-bind="partsShare"></small></div><div><span>Detalių savikaina čekyje</span><strong data-bind="costPerOrder"></strong><small id="costShare"></small></div><div><span>Detalių antkainis</span><strong data-bind="currentMarkup"></strong><small>Skaičiuojamas nuo pirkimo savikainos</small></div></div>
+        </section>
+
+        <section class="analysis-panel" aria-labelledby="employeeRevenueTitle">
+          <header class="analysis-head"><div><h3 id="employeeRevenueTitle">Pajamos pagal darbuotoją</h3><p>Priskirtų užsakymų vertė ir jų įforminimas. Darbuotojo pelningumas vertinamas atskirai.</p></div><div class="analysis-actions"><span class="badge" id="employeeSegmentBadge"></span><div class="sort-buttons" data-sort-kind="employees"><button class="active" data-sort="revenue">Pagal pajamas</button><button data-sort="draft">Pagal juodraščius</button></div></div></header>
+          <table class="analysis-table" aria-label="Darbuotojų pajamų ir juodraščių analizė"><thead><tr><th>Darbuotojas</th><th>Užsakymai</th><th>Pajamos · dalis</th><th>Su S.F.</th><th>Liko juodraštyje</th></tr></thead><tbody id="employeeRevenueRows"></tbody></table>
+          <footer class="analysis-foot"><p>Dalis – nuo visų pasirinkto pjūvio pajamų. Juodraščiai priskiriami susijusiam užsakymui; tai nėra darbuotojo kaltės vertinimas.</p></footer>
+        </section>
+
+        <section class="analysis-panel" aria-labelledby="makerTitle">
+          <header class="analysis-head"><div><h3 id="makerTitle">Pajamos pagal automobilio gamintoją</h3><p>Užsakymų kiekis, pajamų dalis ir įforminimas. Mažas gamintojo srautas savaime nevertinamas kaip blogas rezultatas.</p></div><div class="analysis-actions"><span class="badge" id="makerCoverage"></span><div class="sort-buttons" data-sort-kind="makers"><button class="active" data-sort="revenue">Pagal pajamas</button><button data-sort="draft">Pagal juodraščius</button></div></div></header>
+          <table class="analysis-table" aria-label="Pajamų pagal gamintoją analizė"><thead><tr><th>Automobilio gamintojas</th><th>Užsakymai</th><th>Pajamos · dalis</th><th>Su S.F.</th><th>Liko juodraštyje</th></tr></thead><tbody id="makerRows"></tbody></table>
+          <footer class="analysis-foot"><p id="makerRule">Rodoma iki 15 gamintojų arba ≥80 % pajamų; likusi dalis taip pat įtraukta.</p><button class="plain-button" id="toggleMakers">Rodyti visus gamintojus</button></footer>
+        </section>
+      </div>
+
+      <div id="comparisonView" class="hidden">
+        <div class="comparison-head"><div class="eyebrow">Klientų tipų palyginimas</div><h3>B2B ↔ B2C</h3><p>Vienas laikotarpis ir tie patys užbaigtų užsakymų kriterijai. Kiekvienas rodiklis padeda vertinti atskirą naudą verslui.</p></div>
+        <div class="comparison-insights" id="comparisonInsights"></div>
+        <table class="compare-table" aria-label="B2B ir B2C palyginimas"><thead><tr><th>Rodiklis</th><th>B2B · įmonės</th><th>B2C · privatūs klientai</th></tr></thead><tbody id="comparisonRows"></tbody></table>
+        <p class="compare-note" id="comparisonNote"></p>
+      </div>
+
+      <section class="history-section" aria-labelledby="historyTitle">
+        <header class="history-head"><div><h3 id="historyTitle">Kokiu tempu juda servisas?</h3><p>2026 m. kovas–rugpjūtis · ankstesni mėnesiai demonstraciniai · pasirinktas pjūvis: <b id="historyScope">Visi klientai</b></p></div><span class="badge">6 mėnesių tendencija</span></header>
+        <div class="history-grid">
+          <article class="chart-panel"><header class="chart-head"><div><h4>Pajamų kitimas</h4><p>Užbaigtų užsakymų pajamos be PVM</p></div><div class="chart-value num" id="historyRevenueValue"></div></header><div class="chart" id="revenueChart"></div><div class="chart-legend" id="revenueLegend"></div></article>
+          <article class="chart-panel"><header class="chart-head"><div><h4>Užsakymų kiekis</h4><p>Užbaigti užsakymai per mėnesį</p></div><div class="chart-value num" id="historyOrdersValue"></div></header><div class="chart" id="ordersChart"></div><div class="chart-legend" id="ordersLegend"></div></article>
+          <article class="chart-panel"><header class="chart-head"><div><h4>Vidutinis čekis</h4><p>Mėnesio pajamos ÷ užbaigti užsakymai</p></div><div class="chart-value num" id="historyAovValue"></div></header><div class="chart" id="aovChart"></div><div class="chart-legend" id="aovLegend"></div></article>
+          <article class="chart-panel"><header class="chart-head"><div><h4>Pajamų įforminimas</h4><p>Kiek pajamų įforminta S.F. ir kiek liko juodraštyje</p></div><div class="chart-value num" id="historyQualityValue"></div></header><div class="chart" id="qualityChart"></div><div class="chart-legend" id="qualityLegend"></div></article>
+        </div>
+        <div class="month-buttons" id="monthButtons" aria-label="Pasirinkti mėnesį grafikuose"></div>
+        <div class="history-detail" id="historyDetail" aria-live="polite"></div>
+      </section>
+    </div>
+  </section>
+</main>
+
+<div class="overlay hidden" id="aovOverlay" role="dialog" aria-modal="true" aria-labelledby="dialogTitle">
+  <section class="dialog">
+    <header class="dialog-head">
+      <div class="dialog-title"><button class="back" id="closeAov" aria-label="Grįžti į Finansus">‹</button><div><div class="crumb">Pajamos / Vidutinis čekis</div><h2 id="dialogTitle">Vidutinio čekio analizė</h2></div></div>
+      <div class="dialog-head-right"><span class="period-pill">Rugpjūtis 2026</span><button class="close" id="closeAovX" aria-label="Uždaryti">×</button></div>
+    </header>
+    <div class="dialog-body">
+      <div class="dialog-top">
+        <p>Pasirinkus klientų pjūvį, perskaičiuojama čekio sudėtis ir atskiras segmento scenarijus.</p>
+        <div class="segment-tabs" data-segment-tabs aria-label="Vidutinio čekio klientų pjūvis">
+          <button class="segment-tab active" data-segment="all">Visi klientai</button>
+          <button class="segment-tab" data-segment="b2b">B2B</button>
+          <button class="segment-tab" data-segment="b2c">B2C</button>
+        </div>
+      </div>
+
+      <section class="aov-hero">
+        <div class="aov-main"><div class="eyebrow"><span data-bind="segmentLabel">Visi klientai</span> · vidutinis čekis be PVM</div><div class="value num" data-bind="aov">261,39 €</div><p><span data-bind="revenuePlain">10 717 €</span> ÷ <span data-bind="ordersFormula">41 užsakymas</span></p></div>
+        <div class="part-card services"><div class="part-title"><i class="dot" style="background:var(--blue)"></i>Paslaugų dalis čekyje</div><div class="value num" data-bind="servicePerOrder">218,29 €</div><p><span data-bind="servicesPlain">8 950 €</span> ÷ <span data-bind="ordersShort">41</span></p><div class="share"><span>Dalis čekyje</span><strong data-bind="serviceShare">83,5 %</strong></div></div>
+        <div class="part-card parts"><div class="part-title"><i class="dot" style="background:var(--purple)"></i>Detalių dalis čekyje</div><div class="value num" data-bind="partsPerOrder">43,10 €</div><p><span data-bind="partsPlain">1 767 €</span> ÷ <span data-bind="ordersShort">41</span></p><div class="share"><span>Dalis čekyje</span><strong data-bind="partsShare">16,5 %</strong></div></div>
+      </section>
+
+      <div class="scenario-head"><div><div class="eyebrow">Scenarijus</div><h3>Kas pasikeistų, jei koreguotumėte kainas?</h3><p>Pradinės reikšmės užpildytos iš pasirinkto pjūvio faktinių duomenų.</p></div><button class="reset" id="resetScenario">Atstatyti</button></div>
+      <div class="scenario-grid">
+        <section class="lever-box">
+          <div class="box-head"><span class="step-no">1</span><div><h4>Didinkite vidutinį čekį</h4><p>Šie pasirinkimai keičia vieno užsakymo vertę.</p></div></div>
+          <div class="lever-grid">
+            <div class="control-card service"><div class="control-label">Paslaugų kainos pokytis</div><p>Taikomas pasirinkto segmento paslaugoms</p><div class="stepper"><button data-step="service" data-delta="-1" aria-label="Mažinti paslaugų kainos pokytį">−</button><div class="input-suffix-wrap"><input id="servicePct" type="number" min="-100" max="1000" step="1" value="0" aria-label="Paslaugų kainos pokytis procentais"><span aria-hidden="true">%</span></div><button data-step="service" data-delta="1" aria-label="Didinti paslaugų kainos pokytį">+</button></div><div class="control-result" id="serviceControlResult"></div></div>
+            <div class="control-card parts"><div class="control-label">Detalių antkainis <small>SF SUSIETOS</small></div><p>Savikaina gaunama iš tiekėjų sąskaitų faktūrų</p><div class="stepper"><button data-step="markup" data-delta="-1" aria-label="Mažinti detalių antkainį">−</button><div class="input-suffix-wrap"><input id="markupPct" type="number" min="-100" max="1000" step="any" value="30.1945" aria-label="Detalių antkainis procentais"><span aria-hidden="true">%</span></div><button data-step="markup" data-delta="1" aria-label="Didinti detalių antkainį">+</button></div><div class="control-result" id="partsControlResult"></div></div>
+          </div>
+        </section>
+        <section class="volume-box">
+          <div class="box-head"><span class="step-no">2</span><div><h4>Pasirinkite užsakymų kiekį</h4><p>Tai pajamų apimties, o ne vidutinio čekio svertas.</p></div></div>
+          <div class="stepper"><button data-step="orders" data-delta="-1" aria-label="Mažinti užsakymų kiekį">−</button><input id="scenarioOrders" type="number" step="1" min="0" max="10000" value="41" aria-label="Scenarijaus užsakymų kiekis"><button data-step="orders" data-delta="1" aria-label="Didinti užsakymų kiekį">+</button></div><div class="volume-now" id="ordersControlResult"></div>
+        </section>
+      </div>
+
+      <section class="calculation" aria-label="Scenarijaus formulė">
+        <div class="calc blue"><span>Paslaugos</span><strong id="calcServices">218,29 € × 1,05</strong><small id="calcServicesResult">= 229,21 €</small></div><div class="arrow">→</div>
+        <div class="calc purple"><span>Detalės</span><strong id="calcParts">33,10 € × 1,35</strong><small id="calcPartsResult">= 44,69 €</small></div><div class="arrow">→</div>
+        <div class="calc result-calc"><span>Naujas vid. čekis</span><strong id="calcAov">229,21 € + 44,69 €</strong><small id="calcAovResult">= 273,90 €</small></div><div class="arrow">→</div>
+        <div class="calc revenue"><span>Pajamos</span><strong id="calcRevenue">44 × 273,90 €</strong><small id="calcRevenueResult">= 12 051,41 €</small></div>
+      </section>
+
+      <section class="scenario-result">
+        <div class="result-block"><span>Dabar</span><strong class="num" data-bind="revenueExact">10 717,00 €</strong><small><span data-bind="ordersShort">41</span> užsakymas</small></div>
+        <div class="result-arrow">→</div>
+        <div class="result-block"><span>Pagal scenarijų</span><strong class="num" id="scenarioRevenue">12 051,41 €</strong><small id="scenarioMeta">44 užsakymai · 273,90 € vid. čekis</small></div>
+        <div class="result-block gain"><span>Galimas pajamų pokytis</span><strong class="num" id="scenarioGain"></strong><small class="scenario-change num" id="scenarioGainPct"></small><div class="effects"><div><span>Iš paslaugų kainos</span><b id="effectService"></b></div><div><span>Iš detalių antkainio</span><b id="effectParts"></b></div><div><span>Iš užsakymų kiekio</span><b id="effectOrders"></b></div></div></div>
+      </section>
+    </div>
+    <footer class="dialog-foot"><div class="assumption">Tai scenarijus, ne prognozė. Daroma prielaida, kad paslaugų bei detalių sudėtis ir paklausa nesikeičia.</div></footer>
+  </section>
+</div>
+
+<div class="overlay hidden draft-inspector" id="draftOverlay" role="dialog" aria-modal="true" aria-labelledby="draftDialogTitle">
+  <section class="dialog"><header class="dialog-head"><div class="dialog-title"><button class="back" id="closeDraft" aria-label="Grįžti į analizę">‹</button><div><div class="crumb">Pajamos / Juodraščiai</div><h2 id="draftDialogTitle">Užbaigti užsakymai juodraštyje</h2></div></div><button class="close" id="closeDraftX" aria-label="Uždaryti juodraščių analizę">×</button></header>
+    <div class="dialog-body"><div class="inspector-total num" id="inspectorTotal"></div><p class="inspector-context" id="inspectorContext"></p><p class="inspector-copy">Rodomi pasirinktos analizės užbaigti užsakymai, kurių pajamos dar neįformintos sąskaita. Prototipe galima peržiūrėti ryšius; dokumentų duomenys nekeičiami.</p><table class="orders-table"><thead><tr><th>Užsakymas</th><th>Darbuotojas</th><th>Gamintojas</th><th>Kliento tipas</th><th>Susijusi suma</th></tr></thead><tbody id="inspectorRows"></tbody></table></div>
+  </section>
+</div>
+<script src="vurso-finansai-analitika-data.js"></script>
+<script src="vurso-finansai-analitika.js"></script>
+</body>
+</html>
