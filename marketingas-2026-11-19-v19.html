@@ -1,0 +1,860 @@
+<!doctype html>
+<html lang="lt">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Marketingas · VURSO</title>
+<style>
+:root{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#e9eff9;background:#0a1019;font-synthesis:none;--panel:#111b28;--line:#273546;--muted:#97a9bc;--blue:#86baff;--green:#8ee1b5;--red:#f3a49f}*{box-sizing:border-box}body{margin:0}button,input,textarea,select{font:inherit}button{cursor:pointer;color:inherit}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid #86baff;outline-offset:2px}button{border:0;background:none}header{height:68px;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 3.2%;gap:48px}.logo{font-size:21px;font-weight:850;letter-spacing:.05em}.topnav{display:flex;align-items:stretch;gap:28px;height:100%;color:#a4b1c1}.topnav span{display:grid;place-items:center;font-size:14px}.topnav .active{border-bottom:2px solid #80b6ff;color:#a6ceff;font-weight:700}.account{margin-left:auto;font-size:13px;color:#c9d5e3}.avatar{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#334f72;color:#e7f1ff;font-size:12px;font-weight:700;margin-right:7px}main{max-width:1800px;margin:auto;padding:29px 3.2% 42px}.headline{display:flex;justify-content:space-between;gap:20px;align-items:center}.headline h1{font-size:36px;line-height:1.1;letter-spacing:-.04em;margin:0 0 8px}.headline p{margin:0;color:var(--muted);font-size:14px}.btn{padding:10px 15px;border:1px solid var(--line);border-radius:8px;background:#172536;font-weight:650;font-size:13px}.btn:hover{border-color:#6886a7}.primary{background:#8bbdff;color:#081728;border-color:#8bbdff}.primary:hover{background:#b3d3ff}.tabs{display:flex;gap:26px;border-bottom:1px solid var(--line);margin:29px 0 18px;overflow:auto}.tabs button{white-space:nowrap;color:var(--muted);padding:0 1px 13px;font-size:14px}.tabs button.active{color:#a8d0ff;border-bottom:2px solid #8bbdff;font-weight:700}.tabs .num{font-size:11px;background:#25364a;border-radius:5px;padding:3px 6px;margin-left:5px}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}.filters{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.filter,select,input,textarea{color:#d7e3f1;background:#121e2c;border:1px solid #314255;border-radius:7px;padding:8px 10px;font-size:13px}.filter.active{border-color:#769bcd;background:#203b5b;color:#c9e1ff}.search{width:230px}.meta{color:var(--muted);font-size:12px}.workspace{display:grid;grid-template-columns:minmax(275px,325px) minmax(340px,1fr) minmax(260px,300px);border:1px solid var(--line);border-radius:12px;min-height:650px;background:var(--panel);overflow:hidden}.list{border-right:1px solid var(--line)}.listhead,.threadhead,.sidehead{padding:18px 19px;border-bottom:1px solid var(--line)}.listhead{display:flex;align-items:center;justify-content:space-between}.listhead strong,.sidehead strong{font-size:14px}.listhead span{font-size:12px;color:var(--muted)}.item{display:block;width:100%;text-align:left;padding:15px 17px;border-bottom:1px solid #223041;border-left:3px solid transparent}.item.active{background:#1b3047;border-left-color:#80b9ff}.item:hover{background:#1b2a3b}.row{display:flex;justify-content:space-between;align-items:center;gap:8px}.item strong{font-size:13px}.time{color:#90a4ba;font-size:11px;white-space:nowrap}.item .topic{font-size:13px;margin:5px 0;color:#d5e1ee}.preview{font-size:12px;color:#9eafc1;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.itemfoot{display:flex;align-items:center;gap:7px;margin-top:9px}.pill{display:inline-flex;align-items:center;gap:5px;background:#25394f;color:#b5d2f0;padding:4px 7px;border-radius:5px;font-size:10px;font-weight:700}.pill.red{background:#492d35;color:#ffc0bc}.pill.amber{background:#493d2b;color:#fbd39c}.pill.green{background:#213e35;color:#b3efd0}.small{font-size:11px;color:var(--muted)}.thread{display:flex;flex-direction:column;min-width:0}.threadhead h2{margin:0;font-size:19px}.threadhead .line{margin-top:7px;color:var(--muted);font-size:12px}.threadhead .line span{margin-right:12px}.conversation{padding:20px 24px;flex:1;min-height:350px}.date{text-align:center;color:#8499b0;font-size:11px;margin-bottom:20px}.message{max-width:83%;margin-bottom:17px}.message.out{margin-left:auto}.bubble{border:1px solid #304256;background:#1b2a3b;border-radius:5px 12px 12px 12px;padding:12px 14px;font-size:13px;line-height:1.55;color:#e4edf7}.out .bubble{background:#25466a;border-color:#34597e;border-radius:12px 5px 12px 12px}.msgmeta{font-size:10px;color:#91a5b8;margin:5px 2px}.out .msgmeta{text-align:right}.notice{margin:18px 0;background:#342e27;border:1px solid #6b5639;border-radius:8px;color:#f0d5ab;padding:11px 13px;font-size:12px;line-height:1.5}.compose{border-top:1px solid var(--line);padding:16px 20px}.compose textarea{width:100%;min-height:64px;resize:vertical;background:#0d1723}.compose .row{margin-top:9px}.side{border-left:1px solid var(--line);background:#0f1925}.sidebody{padding:16px 18px}.field{margin-bottom:18px}.field label{display:block;color:#8fa3b8;font-size:11px;margin-bottom:5px}.field b{font-size:13px;font-weight:650}.sidebody select{width:100%}.taskbox{background:#192b3b;border:1px solid #32475a;border-radius:9px;padding:12px;margin-bottom:18px}.taskbox strong{font-size:13px}.taskbox p{font-size:12px;line-height:1.5;margin:8px 0;color:#d7e4ef}.sidebody h3{font-size:12px;margin:0 0 10px}.doc{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding:11px 0;font-size:12px}.board{display:flex;align-items:flex-start;gap:11px;overflow:auto;min-height:610px;padding-bottom:18px}.column{min-width:250px;width:250px;background:#101a27;border:1px solid var(--line);border-radius:10px;min-height:470px}.colhead{padding:15px 13px;border-bottom:1px solid var(--line);font-size:13px;font-weight:700}.colhead small{float:right;color:var(--muted)}.cards{padding:10px;min-height:400px}.card{background:#192838;border:1px solid #34475a;border-radius:8px;margin-bottom:9px;padding:12px;cursor:grab}.card:hover{border-color:#80b6ff}.card h3{font-size:13px;margin:8px 0 5px}.card p{font-size:11px;line-height:1.45;color:#aabbd0;margin:6px 0}.card .row{margin-top:10px}.card button{text-align:left;padding:0}.card select{max-width:100%;margin-top:9px;font-size:11px}.empty{padding:28px;color:var(--muted);font-size:13px}.sr{position:absolute;clip-path:inset(50%)}dialog{background:#14202e;color:#e7f0fa;border:1px solid #38506a;border-radius:12px;width:min(480px,94vw);padding:24px}dialog::backdrop{background:#030810bb}dialog h2{margin:0 0 18px;font-size:22px}dialog label{display:grid;gap:5px;color:var(--muted);font-size:12px;margin:12px 0}dialog input,dialog select{width:100%}dialog .row{justify-content:flex-end;margin-top:20px}.demo{color:#aabacd;font-size:11px;background:#1c2b3b;border:1px solid #34465a;border-radius:6px;padding:5px 8px}.board-note{margin-bottom:14px}.tasklist{border:1px solid var(--line);border-radius:10px;overflow:hidden}.taskrow{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:15px;padding:17px;border-bottom:1px solid var(--line);background:var(--panel);font-size:13px}.taskrow:hover{background:#192b3b}.toast{color:#a9e3bf;font-size:12px}
+@media(max-width:1050px){.workspace{grid-template-columns:280px 1fr}.side{grid-column:2;border-left:0;border-top:1px solid var(--line)}.topnav{gap:15px}header{gap:24px}}@media(max-width:700px){header{height:56px;padding:0 16px}.topnav span:not(.active){display:none}.account{font-size:0}.account .avatar{font-size:12px}.headline h1{font-size:29px}.headline{align-items:flex-start}.headline p{max-width:220px}.workspace{display:flex;flex-direction:column}.list{border-right:0;max-height:330px;overflow:auto}.thread{border-top:1px solid var(--line)}.side{border-left:0}.conversation{min-height:220px;padding:18px}.search{width:100%}.toolbar{align-items:flex-start;flex-wrap:wrap}.taskrow{grid-template-columns:1fr 1fr}.tabs{gap:18px}.demo{display:none}.message{max-width:94%}}
+.waiting{margin:12px 0 4px;padding:11px 12px;border:1px solid #506c87;border-radius:8px;background:#1c3348;color:#c9e3ff}.waiting.alert{background:#45272d;border-color:#ec8c82;color:#ffe3df}.waiting strong{display:block;font-size:20px;line-height:1.15}.waiting small{display:block;margin-top:5px;font-size:11px}.attach{display:block;width:100%;padding:9px;margin-top:8px;text-align:center}.attachment{display:flex;justify-content:space-between;gap:8px;margin:8px 0;font-size:12px}.sendproposal{display:block;width:100%;text-align:center!important;margin-top:9px;padding:9px!important}.draftbox{margin-bottom:10px;padding:12px;background:#20354b;border:1px solid #43627f;border-radius:8px;font-size:12px}.draftbox label{display:block;margin:9px 0 5px;color:#b9ccde}.draftbox input{width:100%}.settings{display:flex;align-items:center;gap:8px}.settings input{width:64px}.settings label{font-size:12px;color:#aabbd0}
+.response-summary{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 14px}.response-summary .caption{color:#b9c8d9;font-weight:700;font-size:12px;margin-right:3px}.age-button{display:flex;align-items:center;gap:9px;border:1px solid #34485f;border-radius:8px;background:#152334;color:#bacce0;padding:8px 11px;font-size:12px}.age-button strong{font-size:17px;color:#f2f6fc}.age-button.late{border-color:#78474a;background:#352228;color:#ffd3cb}.age-button.late strong{color:#ffb0a7}.age-button.active{outline:2px solid #8bbdff;outline-offset:1px}.response-note{font-size:11px;color:#92a6ba;margin-left:auto}.unanswered-label{font-size:11px;color:#ffb9ad;margin-top:7px;font-weight:700}
+@media(max-width:700px){.response-note{width:100%;margin-left:0}.response-summary{gap:7px}.age-button{padding:7px 9px}}
+.message-action { margin: 7px 0 0; padding: 6px 10px; font-size: 12px; }
+.internal-event { margin: 14px 0; padding: 8px 12px; border-left: 2px solid #547292; color: #b9cbe0; background: #142130; font-size: 12px; line-height: 1.5; }
+.internal-event time { display: block; color: var(--muted); font-size: 11px; margin-top: 3px; }
+.closed-banner { align-items: center; display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; background: #152637; }
+.closed-banner strong { font-size: 13px; }
+.result-options { display: grid; gap: 8px; padding: 0; margin: 0; border: 0; }
+.result-options legend { color: var(--muted); font-size: 12px; margin-bottom: 8px; }
+#result-dialog .result-option { display: flex; align-items: flex-start; gap: 9px; padding: 11px; margin: 0; border: 1px solid #34475a; border-radius: 8px; color: #e9eff9; cursor: pointer; }
+.result-option:has(input:checked) { background: #203b5b; border-color: #769bcd; }
+#result-dialog input[type=radio] { width: auto; margin: 2px 0 0; accent-color: #8bbdff; }
+.result-option small { display: block; margin-top: 4px; color: #afc1d5; line-height: 1.4; }
+#result-dialog [hidden] { display: none; }
+.attachment span { overflow-wrap: anywhere; }
+.account { display: inline-flex; align-items: center; padding: 5px 0 5px 8px; border-radius: 7px; white-space: nowrap; }
+.account-name { font-weight: 650; }
+#create, #pipeline-dialog { width: min(750px, calc(100% - 28px)); max-height: calc(100dvh - 28px); }
+#create label, #pipeline-dialog label { margin: 0; min-width: 0; }
+#create textarea { width: 100%; min-height: 132px; resize: vertical; line-height: 1.45; }
+.form-fields, .pipeline-fields { display: grid; gap: 14px; }
+.form-row { display: grid; gap: 12px; }
+.form-contact { grid-template-columns: 1.12fr 1fr .8fr; }
+.form-vehicle { grid-template-columns: minmax(0, 1fr) 105px; }
+.form-assignment { grid-template-columns: .9fr 1.45fr .9fr; }
+.form-row input, .form-row select { min-width: 0; }
+.form-actor { margin: 0; font-size: 12px; color: var(--muted); }
+.form-actor strong { color: #d6e5f7; }
+.pipeline-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+.pipeline-row input, .pipeline-error { min-width: 0; }
+.pipeline-error { margin: 8px 0 0; font-size: 12px; color: var(--red); }
+.board-note { flex-wrap: wrap; }
+.board-controls { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.inquiry-topic { white-space: pre-wrap; overflow-wrap: anywhere; }
+.item .topic { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; overflow-wrap: anywhere; }
+.card h3, .colhead, .contact-details { overflow-wrap: anywhere; }
+@media(max-width:640px){
+ .form-contact, .form-assignment { grid-template-columns: 1fr 1fr; }
+ .form-contact>label:first-child, .form-assignment>label:nth-child(2) { grid-column: 1 / -1; }
+}
+@media(max-width:420px){
+ #create, #pipeline-dialog { padding: 18px; }
+ .form-contact, .form-assignment, .pipeline-row { grid-template-columns: 1fr; }
+}
+.handoff-box{margin:16px 0;padding:14px;border:1px solid #486383;background:#182c40;border-radius:9px;font-size:12px;line-height:1.5}.handoff-box strong{font-size:13px;display:block;margin-bottom:6px}.handoff-box .btn{margin-top:10px}#handoff-dialog textarea{width:100%;min-height:85px;resize:vertical}#handoff-dialog select{width:100%}.pipeline-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr) 38px;align-items:end}.delete-stage{width:38px;height:38px;border:1px solid #53667e;border-radius:7px;color:#cbd7e5;font-size:19px}.delete-stage:hover{background:#492d35;color:#ffc0bc;border-color:#b77272}.stage-removal{grid-column:1/-1;background:#2e2927;border:1px solid #735b46;border-radius:8px;padding:10px}.stage-removal label{margin-top:8px!important}.stage-removal .btn{margin-top:9px}.removed-stage{opacity:.76}@media(max-width:420px){.pipeline-row{grid-template-columns:1fr 38px}.pipeline-row>label:nth-child(2){grid-column:1}.delete-stage{grid-column:2;grid-row:1}}
+.contract-box{margin:18px 0;border-top:1px solid var(--line);padding-top:16px}.contract-box h3{margin:0 0 8px}.contract-box .status-line{font-size:12px;line-height:1.5;color:#bcd0e2;margin:9px 0}.contract-box .btn{width:100%;margin-top:8px;text-align:center}.contract-info{margin-top:8px;line-height:1.45}.contract-badge{display:block;background:#26384a;border:1px solid #48627c;border-radius:7px;padding:8px;margin:9px 0;color:#d5e8f8;font-size:12px}.contract-badge.pending{background:#3c3023;border-color:#755d3c;color:#fbd8a9}.contract-badge.confirmed{background:#1a392f;border-color:#39795c;color:#baf0d0}.module-preview{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:20px 0 0}.module-switch{display:flex;gap:7px;align-items:center;flex-wrap:wrap}.module-switch>span{color:var(--muted);font-size:12px;margin-right:5px}.module-switch button[aria-pressed=true]{background:#203b5b;border-color:#769bcd;color:#c9e1ff}.plus-label{font-size:10px;color:#9ecaff;background:#243f5d;border-radius:4px;padding:3px 5px;margin-left:4px}.upgrade{min-height:330px;display:grid;place-items:center;border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:30px}.upgrade-content{max-width:530px}.upgrade-content h2{font-size:24px;margin:0 0 10px}.upgrade-content p{color:var(--muted);line-height:1.6;font-size:14px}.upgrade-content button{margin-top:10px}.analytics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}.analytics-grid .taskbox{margin:0}[hidden]{display:none!important}#handoff-dialog{width:min(820px,94vw);max-height:90vh;overflow:auto}.handoff-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 12px}@media(max-width:600px){.handoff-fields{grid-template-columns:1fr 1fr}}</style>
+</head>
+<body>
+<header><span class="logo">VURSO</span><nav class="topnav" aria-label="Pagrindinė navigacija"><span>Planuoklis</span><span>Operaciniai</span><span>Finansai</span><span class="active">Marketingas</span></nav><button class="account" id="profile-button" type="button" aria-label="Keisti aktyvų profilį"><span class="avatar" id="profile-avatar"></span><span class="account-name" id="profile-name"></span></button></header>
+<main><div class="headline"><div><h1>Marketingas</h1><p>Klientų pokalbiai, užklausos ir pardavimų eiga</p></div><div class="row"><span class="demo">Demonstraciniai duomenys</span><button class="btn primary" id="add">+ Nauja užklausa</button></div></div>
+<div class="module-preview" aria-label="Prototipo modulio peržiūra"><div class="module-switch"><span>Peržiūrėti modulį</span><button class="btn" id="preview-basic" aria-pressed="true">Marketingas</button><button class="btn" id="preview-plus" aria-pressed="false">Marketingas+</button></div><span class="meta">Bandomas perjungimas</span></div>
+<nav class="tabs" aria-label="Marketingo vaizdai"><button data-view="inbox" class="active">Komunikacija <span class="num" id="inbox-count"></span></button><button data-view="analytics">Analitika</button><button data-view="crm" hidden>CRM lenta <span class="plus-label">Marketingas+</span></button><button data-view="tasks" hidden>Mano darbai <span class="num" id="task-count"></span></button></nav>
+<div id="content"></div><p class="meta">Prototipas · užklausų pakeitimai saugomi atvertame puslapyje.</p><p class="sr" id="announce" role="status"></p></main>
+<dialog id="create" aria-labelledby="create-title">
+ <form id="create-form">
+  <h2 id="create-title">Nauja užklausa</h2>
+  <div class="form-fields">
+   <div class="form-row form-contact">
+    <label>Klientas<input name="customer" autocomplete="off" required autofocus></label>
+    <label>El. paštas<input name="email" type="email" placeholder="vardas@įmonė.lt"></label>
+    <label>Telefonas<input name="phone" type="tel" placeholder="+370"></label>
+   </div>
+   <label>Užklausos tema<textarea name="title" rows="5" required></textarea></label>
+   <div class="form-row form-vehicle">
+    <label>Automobilis<input name="vehicle"></label>
+    <label>Metai<input name="year" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" title="Įrašykite keturis metų skaitmenis"></label>
+   </div>
+   <div class="form-row form-assignment">
+    <label>Gavimo kanalas<select name="channel"><option>Telefonas</option><option>El. paštas</option><option>Svetainė</option><option>Viber</option><option>WhatsApp</option></select></label>
+    <label>Kitas veiksmas<select name="actionId" id="create-action" required></select></label>
+    <label>Atsakingas<select name="owner" id="create-owner"><option>Andrius</option><option>Rokas</option><option>Saulius</option></select></label>
+   </div>
+   <p class="form-actor">Registruoja <strong id="create-actor"></strong></p>
+  </div>
+  <div class="row"><button class="btn" type="button" id="cancel">Atšaukti</button><button class="btn primary">Sukurti</button></div>
+ </form>
+</dialog>
+<dialog id="pipeline-dialog" aria-labelledby="pipeline-title">
+ <form id="pipeline-form">
+  <h2 id="pipeline-title">Komercinė eiga</h2>
+  <div class="pipeline-fields" id="pipeline-fields"></div>
+  <p class="pipeline-error" id="pipeline-error" role="alert" hidden></p>
+  <div class="row">
+   <button class="btn" type="button" id="add-stage">+ Pridėti stulpelį</button>
+   <button class="btn" type="button" id="cancel-pipeline">Atšaukti</button>
+   <button class="btn primary">Išsaugoti eigą</button>
+  </div>
+ </form>
+</dialog>
+<dialog id="profile-dialog" aria-labelledby="profile-title">
+ <form id="profile-form">
+  <h2 id="profile-title">Keisti aktyvų profilį</h2>
+  <p class="meta">Bandomieji PIN · Andrius 7101 · Rokas 7102 · Saulius 7103</p>
+  <label>PIN<input name="pin" inputmode="numeric" type="password" autocomplete="off" pattern="[0-9]{4}" maxlength="4" required></label>
+  <div class="row"><button class="btn" type="button" id="cancel-profile">Atšaukti</button><button class="btn primary">Aktyvuoti profilį</button></div>
+ </form>
+</dialog>
+<dialog id="action-dialog" aria-labelledby="action-title">
+ <form id="action-form">
+  <h2 id="action-title">Kitas veiksmas</h2>
+  <label>Pasirinkite veiksmą<select id="change-action" required></select></label>
+  <div class="row"><button class="btn" type="button" id="cancel-action">Atšaukti</button><button class="btn primary">Išsaugoti veiksmą</button></div>
+ </form>
+</dialog>
+<dialog id="contract-receipt" aria-labelledby="receipt-title">
+ <form id="receipt-form"><h2 id="receipt-title">Užfiksuoti sutarties patvirtinimą</h2>
+  <label>Kaip gautas patvirtinimas?<select name="method" required><option value="">Pasirinkite</option><option>Pasirašyta sutartis</option><option>Kliento patvirtinimas el. paštu</option><option>Kitas patvirtinimas</option></select></label>
+  <label>Pastaba<input name="note" placeholder="Jei reikia, nurodykite aplinkybes"></label>
+  <div class="row"><button class="btn" type="button" id="cancel-receipt">Atšaukti</button><button class="btn primary">Užfiksuoti</button></div>
+ </form>
+</dialog>
+<dialog id="handoff-dialog" aria-labelledby="handoff-title">
+ <form id="handoff-form">
+  <h2 id="handoff-title">Perkelti į planuoklį</h2>
+  <p class="meta">Demonstracinė planuoklio užsakymo kortelė. Patikrinkite iš užklausos surinktus duomenis ir išsaugokite užsakymą. Trūkstamus duomenis papildykite.</p>
+  <div class="handoff-fields">
+   <label>Klientas<input name="customer"></label><label>Telefonas<input name="phone" type="tel"></label><label>El. paštas<input name="email" type="email"></label>
+   <label>Gamintojas<input name="make"></label><label>Modelis<input name="model"></label><label>Metai<input name="year" inputmode="numeric" maxlength="4" pattern="[0-9]{4}"></label>
+   <label>Variklio tūris (l)<input name="engine"></label><label>Galingumas (kW)<input name="power" inputmode="decimal"></label><label>Valstybinis numeris<input name="plate"></label>
+   <label>Kuras<input name="fuel"></label><label>Pavarų dėžė<input name="gearbox"></label><label>VIN<input name="vin"></label><label>Rida (km)<input name="mileage"></label>
+  </div>
+  <label>Informacija planavimui<textarea name="note" required></textarea></label>
+  <div class="row"><button class="btn" type="button" id="cancel-handoff">Atšaukti</button><button class="btn primary">Išsaugoti užsakymą · demonstracija</button></div>
+ </form>
+</dialog>
+<dialog id="result-dialog" aria-labelledby="result-title">
+ <form id="result-form">
+  <h2 id="result-title">Užfiksuoti rezultatą</h2>
+  <fieldset class="result-options">
+   <legend>Kaip baigėsi pokalbis?</legend>
+   <label class="result-option"><input type="radio" name="result" value="declined" required><span><strong>Klientas atsisakė</strong><small>Užbaigia užklausą. CRM kortelė pereina į stulpelį „<span id="lost-stage-label"></span>“.</small></span></label>
+   <label class="result-option"><input type="radio" name="result" value="no-reply"><span><strong>Atsakymo nereikia</strong><small>Pašalina žinutę iš laukiančių atsakymo. Užklausa lieka atvira.</small></span></label>
+  </fieldset>
+  <label id="reason-field" hidden>Priežastis
+   <select name="reason" disabled>
+    <option value="">Pasirinkite priežastį</option>
+    <option>Per brangu</option><option>Pasirinko kitą servisą</option><option>Darbas nebeaktualus</option><option>Kita</option>
+   </select>
+  </label>
+  <div class="row"><button class="btn" type="button" id="cancel-result">Atšaukti</button><button class="btn primary">Išsaugoti rezultatą</button></div>
+ </form>
+</dialog>
+<script>
+'use strict';
+const newStage='new';
+const needsReplyStage='qualify';
+const waitingStage='offer-sent';
+const readyStage='ready-for-planning';
+const planningStage='planning';
+const lostStage='lost';
+const defaultPipeline=[
+ {id:newStage, name:'Nauja', action:'Susisiekti su klientu'},
+ {id:needsReplyStage, name:'Laukia atsakymo', action:'Atsakyti klientui'},
+ {id:'prepare-offer', name:'Ruošiamas pasiūlymas', action:'Paruošti komercinį pasiūlymą'},
+ {id:waitingStage, name:'Pasiūlymas išsiųstas · Laukiame atsakymo', action:'Susisiekti dėl pasiūlymo'},
+ {id:'negotiation', name:'Derybos', action:'Suderinti pasiūlymo sąlygas'},
+ {id:'accepted', name:'Klientas sutiko', action:'Patvirtinti susitarimą'},
+ {id:'contract', name:'Sutartis', action:'Parengti ir išsiųsti sutartį'},
+ {id:readyStage, name:'Laukia perdavimo', action:'Perkelti į planuoklį'},
+ {id:planningStage, name:'Perduota planuotojui', action:'Patikrinti planavimo eigą'},
+ {id:lostStage, name:'Pralaimėta', action:''}
+];
+// Demonstracinės sesijos. Produkcijoje profilį pateikia esama VURSO PIN sesija.
+const demoProfiles=[
+ {id:'demo-andrius', name:'Andrius', pin:'7101'},
+ {id:'demo-rokas', name:'Rokas', pin:'7102'},
+ {id:'demo-saulius', name:'Saulius', pin:'7103'}
+];
+let activeProfile=demoProfiles[0];
+const pipelineKey='vurso-marketingas-v09:demo-servisas:eiga';
+const previousPipelineKey='vurso-marketingas-v07:demo-servisas:eiga';
+let aliases={};
+let draftDeletes={};
+let pipeline=loadPipeline();
+
+function loadPipeline() {
+ try {
+  let stored=JSON.parse(localStorage.getItem(pipelineKey) || localStorage.getItem(previousPipelineKey));
+  if (stored && !Array.isArray(stored) && Array.isArray(stored.stages)) {
+   const valid=stored.stages.length>0 && stored.stages.every(stage=>stage && typeof stage.id==='string' && typeof stage.name==='string' && stage.name.trim() && typeof stage.action==='string');
+   const ids=new Set(stored.stages.map(stage=>stage.id));
+   const routes=stored.aliases || {};
+   if (valid && ids.size===stored.stages.length && Object.values(routes).every(target=>ids.has(target))) {
+    aliases=routes;
+    return stored.stages;
+   }
+  }
+  let saved=stored;
+  if (Array.isArray(saved) && !saved.some(stage=>stage.id===readyStage)) {
+   const beforePlanning=saved.findIndex(stage=>stage.id===planningStage);
+   if (beforePlanning>=0) saved.splice(beforePlanning,0,{...defaultPipeline.find(stage=>stage.id===readyStage)});
+  }
+  if (Array.isArray(saved) && saved.every(stage => stage
+   && typeof stage.id==='string' && typeof stage.name==='string' && stage.name.trim()
+   && typeof stage.action==='string' && (stage.id===lostStage || stage.action.trim()))
+   && new Set(saved.map(stage=>stage.id)).size===saved.length
+   && defaultPipeline.every(stage=>saved.some(entry=>entry.id===stage.id))) {
+   const replyTemplate=defaultPipeline.find(stage=>stage.id===needsReplyStage);
+   return saved.map(stage=>{
+    if (stage.id!==needsReplyStage || stage.name!=='Tikslinama') return stage;
+    return {
+     ...stage,
+     name:replyTemplate.name,
+     action:stage.action==='Patikslinti užklausą' ? replyTemplate.action : stage.action
+    };
+   });
+  }
+ } catch {
+  // Prototipas veikia ir kai naršyklė riboja vietinę saugyklą.
+ }
+ return defaultPipeline;
+}
+
+function resolveStage(id) { return aliases[id] || id; }
+function stageName(id) { return pipeline.find(stage=>stage.id===resolveStage(id))?.name || ''; }
+function taskName(item) {
+ return item.actionId ? (pipeline.find(stage=>stage.id===resolveStage(item.actionId))?.action || pipeline.find(stage=>stage.id===resolveStage(item.actionId))?.name || item.task || '') : item.task;
+}
+function vehicleLabel(item) { return [item.vehicle,item.year].filter(Boolean).join(' · '); }
+const data=[
+{id:'U-1042',customer:'Tomas V.',title:'Galinio vaizdo kamera ir kablys',vehicle:'BMW 5 serija',channel:'El. paštas',owner:'Andrius',stage:'prepare-offer',crm:true,attention:'Pasiūlymas vėluoja',tone:'red',task:'Patikrinti komplektaciją pagal VIN ir pateikti kainą',due:'Vakar, 16:30',value:'',messages:[{from:'Tomas V.',time:'Vakar, 10:12',text:'Sveiki, atsiunčiu automobilio VIN. Ar galėtumėte pateikti kainą už kamerą ir elektrinį kablį?'},{from:'Andrius',time:'Vakar, 10:28',text:'Ačiū, gavome. Patikrinsime suderinamumą ir šiandien paskambinsime su pasiūlymu.',out:true}],docs:['VIN informacija']},
+{id:'U-1043',customer:'Baltijos transportas',title:'Trijų furgonų įrengimas',vehicle:'VW Crafter · 3 automobiliai',channel:'El. paštas',owner:'Saulius',stage:waitingStage,crm:true,attention:'Klientas atsakė',tone:'amber',task:'Peržiūrėti atsakymą ir suderinti pasiūlymą',due:'Šiandien, 11:00',value:'18 600 €',messages:[{from:'Saulius',time:'Vakar, 14:20',text:'Laba diena, siunčiame trijų automobilių įrengimo pasiūlymą v1.',out:true},{from:'Baltijos transportas',time:'Šiandien, 08:34',text:'Ačiū. Ar galėtumėte atskirai parodyti montavimo kainą ir numatyti darbų pradžią gruodį?'}],docs:['Pasiūlymas v1 · išsiųstas','Specifikacija · 3 automobiliai']},
+{id:'U-1044',customer:'Rasa J.',title:'Automobilio remonto eiga',vehicle:'Škoda Octavia',channel:'Viber',owner:'Rokas',stage:'',crm:false,attention:'Reikia atsakyti',tone:'red',task:'Pranešti klientui apie remonto eigą',due:'Šiandien, 10:00',value:'',messages:[{from:'Rasa J.',time:'Šiandien, 08:10',text:'Sveiki, ar mano automobilis jau bus paruoštas šiandien?'}],docs:['Darbų nuotraukos']},
+{id:'U-1045',customer:'Mantas K.',title:'Kablio montavimo kaina',vehicle:'Ford Transit',channel:'Svetainė',owner:'',stage:newStage,crm:true,attention:'Nepriskirta',tone:'amber',task:'Perimti užklausą ir patikslinti automobilį',due:'Šiandien, 10:00',value:'',messages:[{from:'Svetainės forma',time:'Šiandien, 08:46',text:'Norėčiau sužinoti kablio montavimo kainą. Ford Transit, 2018 m., 2.0 l, 125 kW, dyzelinas.'}],docs:[]},
+{id:'U-1046',customer:'Parko sprendimai',title:'Laiptelio įrengimas',vehicle:'Mercedes-Benz Sprinter',channel:'WhatsApp',owner:'Saulius',stage:'contract',crm:true,attention:'Reikia išsiųsti sutartį',tone:'amber',task:'Parengti ir išsiųsti sutartį klientui',due:'Šiandien, 15:00',value:'4 800 €',messages:[{from:'Parko sprendimai',time:'Vakar, 16:05',text:'Pasiūlymas tinka. Lauksime sutarties.'},{from:'Saulius',time:'Vakar, 16:18',text:'Puiku, rytoj atsiųsime sutartį.',out:true}],docs:['Pasiūlymas v2 · patvirtintas']},
+{id:'U-1047',customer:'Darius M.',title:'Stabdžių patikra',vehicle:'Toyota Avensis',channel:'Telefonas',owner:'Andrius',stage:newStage,crm:true,attention:'Laukiame VIN',tone:'',task:'Patikrinti, ar klientas atsiuntė VIN',due:'Rytoj, 09:00',value:'',messages:[{from:'Andrius',time:'Vakar, 15:30',text:'Klientas skambino dėl stabdžių patikros. Paprašytas atsiųsti VIN.',out:true}],docs:[]}
+];
+let plusEnabled=false;
+let view='inbox', selected='U-1050', filter='all', query='', person='all', next=1051;
+let alertDays=3, draftId=null, draftType='proposal';
+let nextHandoff=1;
+const demoWaitDate=new Date(Date.now()-3*86400000);
+data.push({id:'U-1048',customer:'Rytų logistika',title:'Furgono įrengimas',vehicle:'VW Crafter',channel:'El. paštas',owner:'Saulius',stage:waitingStage,crm:true,attention:'Laukiame atsakymo',tone:'',task:'Susisiekti dėl pasiūlymo',due:'Šiandien',value:'6 200 €',sentAt:demoWaitDate.toISOString(),waiting:true,proposal:{name:'Pasiūlymas v1.pdf',demo:true},messages:[{from:'Saulius',time:demoWaitDate.toLocaleString('lt-LT'),text:'Pateiktas komercinis pasiūlymas. Priedas: Pasiūlymas v1.pdf.',out:true}],docs:[]});
+// Pavyzdžiai grupuojami pagal vietines kalendorines dienas.
+function daysAgo(days){const date=new Date();date.setHours(10,0,0,0);date.setDate(date.getDate()-days);return date.toISOString()}
+data.find(x=>x.id==='U-1043').unansweredSince=daysAgo(0);
+data.find(x=>x.id==='U-1044').unansweredSince=daysAgo(1);
+data.find(x=>x.id==='U-1045').unansweredSince=daysAgo(2);
+data.push({id:'U-1049',customer:'Serviso partneriai',title:'Komercinio transporto įrengimas',vehicle:'Ford Transit',channel:'El. paštas',owner:'Saulius',stage:needsReplyStage,crm:true,attention:'Reikia atsakyti',tone:'red',task:'Atsakyti dėl galimo įrengimo',due:'Vėluoja',value:'',unansweredSince:daysAgo(4),messages:[{from:'Serviso partneriai',time:'Prieš 4 dienas',text:'Sveiki, ar galite pateikti komercinio transporto įrengimo sąlygas?'}],docs:[]});
+const declinedExampleAt = daysAgo(0);
+data.unshift({
+ id:'U-1050', customer:'Šiaurės parkas', title:'Dviejų furgonų įrengimas',
+ vehicle:'Ford Transit · 2 automobiliai', channel:'El. paštas', owner:'Andrius',
+ stage:waitingStage, crm:true, attention:'Klientas atsakė', tone:'amber',
+ task:'Peržiūrėti kliento atsakymą', taskForReply:true, due:'Šiandien', value:'12 400 €',
+ sentAt:daysAgo(1), unansweredSince:declinedExampleAt,
+ proposal:{name:'Pasiūlymas v2.pdf',demo:true},
+ messages:[
+  {from:'Andrius',time:'Vakar, 10:00',text:'Sveiki, siunčiu atnaujintą dviejų furgonų įrengimo pasiūlymą.',out:true},
+  {from:'Šiaurės parkas',time:'Šiandien, 08:20',text:'Ačiū, man šis pasiūlymas per brangus. Šįkart darbų neužsakysime.'}
+ ],
+ docs:[]
+});
+// Datos ir tipai skirti tik demonstracinei analitikai, tai nėra tikri įrašai.
+for (const [index,item] of data.entries()) { item.receivedAt=daysAgo([0,1,2,4,8,15,25,34,48][index]); }
+for (const item of data.filter(x => ['U-1044','U-1049'].includes(x.id))) item.taskForReply=true;
+const ageLabels=[['today','Šiandien'],['yesterday','Vakar'],['two','Užvakar'],['older','3 d. ir daugiau']];
+function calendarAge(value){if(!value)return null;const d=new Date(value);if(Number.isNaN(d.getTime()))return null;const today=new Date();const a=Date.UTC(today.getFullYear(),today.getMonth(),today.getDate());const b=Date.UTC(d.getFullYear(),d.getMonth(),d.getDate());return Math.max(0,Math.floor((a-b)/86400000))}
+function ageGroup(item){const age=item.closed ? null : calendarAge(item.unansweredSince);return age===null?null:age===0?'today':age===1?'yesterday':age===2?'two':'older'}
+function waitDays(item){return Math.max(0,Math.floor((Date.now()-new Date(item.sentAt).getTime())/86400000))}
+function sentInfo(item){return item.sentAt?'<div class="small">Pasiūlymas išsiųstas '+esc(new Date(item.sentAt).toLocaleString('lt-LT'))+'</div>':''}
+function waitingBadge(item){if(!item.waiting||!item.sentAt)return '';const days=waitDays(item),alert=days>=alertDays;return '<div class="waiting '+(alert?'alert':'')+'"><strong>Laukiama '+days+' d.</strong><small>'+(alert?'Pasiekta įspėjimo riba · ':'')+'Išsiųsta '+esc(new Date(item.sentAt).toLocaleString('lt-LT'))+'</small></div>'}
+function attachInput(item){return '<input class="sr" type="file" id="proposal-file" aria-label="Prikabinti komercinį pasiūlymą" accept=".pdf,.doc,.docx,.xls,.xlsx"><button class="btn attach" id="attach-proposal" type="button">'+(item.proposal?'Pakeisti pasiūlymą':'Prikabinti pasiūlymą')+'</button>'}
+function proposalLabel(item){return item.proposal?'<div class="attachment"><span>📎 '+esc(item.proposal.name)+'</span><span class="small">Pasiūlymas</span></div>':'<p class="small">Komercinis pasiūlymas neprikabintas</p>'}
+function startDraft(id,type){
+ selected=id;view='inbox';filter='all';person='all';query='';draftId=id;draftType=type;
+ render();setTimeout(()=>document.querySelector('#recipient')?.focus(),0);
+}
+function startProposal(id){startDraft(id,'proposal')}
+function contractMarkup(item) {
+ const contract=item.contract;
+ const sent=contract?.sentAt;
+ const receipt=contract?.confirmedAt;
+ const status=receipt?'Patvirtinta':sent?'Išsiųsta · laukia patvirtinimo':item.attention==='Reikia išsiųsti sutartį'?'Reikia išsiųsti':'Dar neišsiųsta';
+ return '<div class="contract-box"><h3>Sutartis</h3><div class="contract-badge '+(receipt?'confirmed':sent?'pending':'')+'">'+status+'</div>'
+  +(contract?.file?'<div class="attachment"><span>📎 '+esc(contract.file.name)+'</span></div>':'<div class="small">Sutarties failas neprikabintas</div>')
+  +(sent?'<div class="small contract-info">Išsiųsta '+esc(new Date(sent).toLocaleString('lt-LT'))+' · '+esc(contract.sentFile)+' · '+esc(contract.recipient)+'</div>':'')
+  +(receipt?'<div class="small contract-info">Patvirtinta '+esc(new Date(receipt).toLocaleString('lt-LT'))+' · '+esc(contract.method)+'</div>':'')
+  +'<input class="sr" type="file" id="contract-file" aria-label="Prikabinti sutartį" accept=".pdf,.doc,.docx">'
+  +'<button class="btn" type="button" id="attach-contract">'+(contract?.file?'Pakeisti sutartį':'Prikabinti sutartį')+'</button>'
+  +(contract?.file?'<button class="btn primary" type="button" id="send-contract">Siųsti sutartį el. paštu</button>':'')
+  +(sent&&!receipt?'<button class="btn" type="button" id="confirm-contract">Užfiksuoti patvirtinimą</button>':'')+'</div>';
+}
+function contractCard(item) {
+ if (!item.contract && item.attention!=='Reikia išsiųsti sutartį') return '';
+ const c=item.contract;
+ const text=c?.confirmedAt?'Sutartis patvirtinta':c?.sentAt?'Sutartis išsiųsta · laukiama patvirtinimo':'Reikia išsiųsti sutartį';
+ return '<div class="contract-badge '+(c?.confirmedAt?'confirmed':c?.sentAt?'pending':'')+'">'+text
+  +(c?.sentAt?'<div class="small contract-info">'+esc(new Date(c.sentAt).toLocaleString('lt-LT'))+' · '+esc(c.sentFile)+'</div>':'')+'</div>';
+}
+function bindAttachment(item){const input=$('#proposal-file');if(!input)return;$('#attach-proposal').onclick=()=>input.click();input.onchange=()=>{const file=input.files[0];if(!file)return;item.proposal={name:file.name,file};announce('Pasiūlymas prikabintas');render()}}
+
+const $=s=>document.querySelector(s), root=$('#content');
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const get=()=>data.find(x=>x.id===selected);
+
+function stageOptions(selectedId) {
+ return pipeline.map(stage=>
+  '<option value="'+esc(stage.id)+'"'+(stage.id===resolveStage(selectedId)?' selected':'')+'>'+esc(stage.name)+'</option>'
+ ).join('');
+}
+
+function actionOptions() {
+ return '<option value="">Pasirinkite veiksmą</option>'+pipeline.map(stage=>
+  '<option value="'+esc(stage.id)+'">'+esc(stage.action || stage.name)+'</option>'
+ ).join('');
+}
+
+function openActionDialog(item) {
+ const select=$('#change-action');
+ select.innerHTML=actionOptions();
+ select.value=item.actionId || '';
+ $('#action-dialog').showModal();
+}
+
+function appendStageRow(stage, before=null) {
+ const row=document.createElement('div');
+ row.className='pipeline-row';
+ row.dataset.stageId=stage.id;
+ const label=document.createElement('label');
+ label.textContent='CRM stulpelis';
+ const name=document.createElement('input');
+ name.className='stage-name';
+ name.required=true;
+ name.maxLength=80;
+ name.value=stage.name;
+ label.append(name);
+ row.append(label);
+ if (stage.id!==lostStage) {
+  const actionLabel=document.createElement('label');
+  actionLabel.textContent='Kitas veiksmas';
+  const action=document.createElement('input');
+  action.className='stage-action';
+  action.placeholder='Pagal stulpelio pavadinimą';
+  action.maxLength=100;
+  action.value=stage.action;
+  actionLabel.append(action);
+  row.append(actionLabel);
+ }
+ const remove=document.createElement('button');
+ remove.type='button';
+ remove.className='delete-stage';
+ remove.textContent='×';
+ remove.setAttribute('aria-label','Ištrinti stulpelį '+stage.name);
+ remove.onclick=()=>markStageForRemoval(row);
+ row.append(remove);
+ $('#pipeline-fields').insertBefore(row,before);
+ return name;
+}
+
+function markStageForRemoval(row) {
+ const remaining=Array.from(document.querySelectorAll('.pipeline-row')).filter(r=>r!==row && !r.classList.contains('removed-stage'));
+ if (!remaining.length) {
+  $('#pipeline-error').textContent='Palikite bent vieną CRM stulpelį.';
+  $('#pipeline-error').hidden=false;
+  return;
+ }
+ $('#pipeline-error').hidden=true;
+ row.classList.add('removed-stage');
+ row.querySelectorAll('input').forEach(input=>{input.disabled=true});
+ row.querySelector('.delete-stage').hidden=true;
+ const panel=document.createElement('div');
+ panel.className='stage-removal';
+ const label=document.createElement('label');
+ label.textContent='Perkelti korteles ir susietus veiksmus į';
+ const select=document.createElement('select');
+ select.className='stage-target';
+ select.required=true;
+ const placeholder=document.createElement('option');
+ placeholder.value='';
+ placeholder.textContent='Pasirinkite stulpelį';
+ select.append(placeholder);
+ remaining.forEach(other=>{
+  const option=document.createElement('option');
+  option.value=other.dataset.stageId;
+  option.textContent=other.querySelector('.stage-name').value || 'Naujas stulpelis';
+  select.append(option);
+ });
+ label.append(select);
+ const undo=document.createElement('button');
+ undo.type='button';undo.className='btn';undo.textContent='Atšaukti ištrynimą';
+ undo.onclick=()=>{row.classList.remove('removed-stage');row.querySelectorAll('input').forEach(input=>input.disabled=false);row.querySelector('.delete-stage').hidden=false;panel.remove()};
+ panel.append(label,undo);row.append(panel);
+ select.focus();
+}
+
+function openPipeline() {
+ $('#pipeline-fields').replaceChildren();
+ for (const stage of pipeline) appendStageRow(stage);
+ $('#pipeline-error').hidden=true;
+ $('#pipeline-dialog').showModal();
+}
+
+function savePipeline(event) {
+ event.preventDefault();
+ const allRows=Array.from(document.querySelectorAll('.pipeline-row'));
+ const rows=allRows.filter(row=>!row.classList.contains('removed-stage'));
+ const removed=allRows.filter(row=>row.classList.contains('removed-stage'));
+ const activeIds=new Set(rows.map(row=>row.dataset.stageId));
+ if (removed.some(row=>!activeIds.has(row.querySelector('.stage-target').value))) {
+  const error=$('#pipeline-error');
+  error.textContent='Kiekvienam ištrinamam stulpeliui pasirinkite išliekantį stulpelį.';
+  error.hidden=false;
+  return;
+ }
+ const edited=rows.map(row=>{
+  const id=row.dataset.stageId;
+  const name=row.querySelector('.stage-name').value.trim();
+  const action=id===lostStage ? '' : row.querySelector('.stage-action').value.trim() || name;
+  return {id,name,action};
+ });
+ const names=new Set(edited.map(stage=>stage.name.toLocaleLowerCase('lt')));
+ if (edited.some(stage=>!stage.name) || names.size!==edited.length) {
+  const error=$('#pipeline-error');
+  error.textContent='Įrašykite skirtingus stulpelių pavadinimus.';
+  error.hidden=false;
+  return;
+ }
+ const redirects={...aliases};
+ for (const row of removed) redirects[row.dataset.stageId]=row.querySelector('.stage-target').value;
+ for (const key of Object.keys(redirects)) {
+  let target=redirects[key];
+  const visited=new Set([key]);
+  while (redirects[target] && !visited.has(target)) {
+   visited.add(target);
+   target=redirects[target];
+  }
+  if (!activeIds.has(target)) {
+   $('#pipeline-error').textContent='Kiekvienam ištrinamam stulpeliui pasirinkite išliekantį stulpelį.';
+   $('#pipeline-error').hidden=false;
+   return;
+  }
+  redirects[key]=target;
+ }
+ pipeline=edited;
+ aliases=redirects;
+ for (const item of data) {
+  if (item.stage && redirects[item.stage]) item.stage=redirects[item.stage];
+  if (item.actionId && redirects[item.actionId]) item.actionId=redirects[item.actionId];
+ }
+ let message='Komercinė eiga išsaugota.';
+ try {
+  localStorage.setItem(pipelineKey,JSON.stringify({stages:pipeline,aliases}));
+ } catch {
+  message='Komercinė eiga išsaugota atvertame puslapyje.';
+ }
+ $('#pipeline-dialog').close();
+ render();
+ $('#edit-pipeline').focus();
+ announce(message);
+}
+
+function contactDetails(item) {
+ const fields=[
+  ['El. paštas',item.email],
+  ['Telefonas',item.phone],
+  ['Registravo',demoProfiles.find(profile=>profile.id===item.createdBy)?.name]
+ ];
+ return fields.filter(([,value])=>value).map(([label,value])=>
+  '<div class="field contact-details"><label>'+esc(label)+'</label><b>'+esc(value)+'</b></div>'
+ ).join('');
+}
+
+function recordInternal(item, text) {
+ item.messages.push({
+  internal:true,
+  actorId:activeProfile.id,
+  from:activeProfile.name,
+  time:new Date().toLocaleString('lt-LT'),
+  text
+ });
+}
+
+function changeStage(item, nextStage) {
+ if (nextStage===resolveStage(planningStage) && resolveStage(planningStage)===planningStage && !item.handoff) {
+  selected=item.id;view='inbox';filter='all';person='all';query='';draftId=null;
+  render();
+  announce('Pirmiausia išsaugokite užsakymą planuoklyje');
+  return;
+ }
+ if (item.closed || item.stage===nextStage || nextStage===lostStage && resolveStage(lostStage)===lostStage || !stageName(nextStage)) return;
+ const previous=item.stage;
+ item.stage=nextStage;
+ if (nextStage!==resolveStage(waitingStage)) item.waiting=false;
+ recordInternal(item, 'CRM etapas pakeistas iš „'+stageName(previous)+'“ į „'+stageName(nextStage)+'“.');
+ announce('Etapas pakeistas į '+stageName(nextStage));
+ render();
+}
+
+function clearPendingReply(item) {
+ item.unansweredSince=null;
+ if (item.taskForReply) {
+  item.task='';
+  item.actionId=null;
+  item.due='';
+  item.taskForReply=false;
+ }
+ if (item.attention==='Reikia atsakyti' || item.attention==='Klientas atsakė') {
+  item.attention='';
+  item.tone='';
+ }
+}
+
+function showResultDialog() {
+ const form=$('#result-form');
+ form.reset();
+ updateReasonField();
+ $('#lost-stage-label').textContent=stageName(lostStage);
+ $('#result-dialog').showModal();
+}
+
+function updateReasonField() {
+ const showReason=$('#result-form input[value="declined"]').checked;
+ const reason=$('#result-form select');
+ $('#reason-field').hidden=!showReason;
+ reason.disabled=!showReason;
+ reason.required=showReason;
+}
+
+function saveResult(event) {
+ event.preventDefault();
+ const item=get();
+ if (!item || !item.unansweredSince || item.closed) return;
+ const choice=new FormData(event.currentTarget);
+ const outcome=choice.get('result');
+ const reason=choice.get('reason');
+ if (outcome==='declined' && reason) {
+  item.closed={reason};
+  item.won=false;
+  item.waiting=false;
+  recordInternal(item, 'Užklausa užbaigta. Klientas atsisakė · '+reason+'.');
+ } else if (outcome==='no-reply') {
+  recordInternal(item, 'Pažymėta, kad į kliento žinutę atsakymo nereikia.');
+ } else {
+  return;
+ }
+ clearPendingReply(item);
+ draftId=null;
+ if (ageLabels.some(([id]) => id===filter) || filter==='attention') filter='all';
+ $('#result-dialog').close();
+ render();
+ $('#thread-title').focus();
+ announce(item.closed ? 'Užklausa užbaigta. Priežastis · '+reason : 'Pažymėta · atsakymo nereikia');
+}
+
+function reopenInquiry(item) {
+ item.closed=null;
+ item.attention='Reikia peržiūrėti';
+ item.tone='amber';
+ item.actionId=null;
+ item.task='Peržiūrėti tolesnius veiksmus';
+ item.due='Šiandien';
+ recordInternal(item, 'Užklausa vėl atverta.');
+ if (filter==='closed' || filter==='lost') filter='all';
+ render();
+ $('#thread-title').focus();
+ announce('Užklausa vėl atverta');
+}
+function button(label,handler,cls='btn'){const b=document.createElement('button');b.className=cls;b.textContent=label;b.onclick=handler;return b}
+function tag(item) {
+ if (!plusEnabled && item.attention==='Nepriskirta' && !item.closed && !item.won && !item.waiting) return '';
+ if (item.closed) return '<span class="pill">Klientas atsisakė</span>';
+ if (item.won) return '<span class="pill green">Laimėta</span>';
+ const label=item.waiting ? 'Laukiame atsakymo' : item.attention;
+ return label ? '<span class="pill '+esc(item.tone)+'">'+esc(label)+'</span>' : '';
+}
+function activeTask(item) { return Boolean(!item.closed && taskName(item)); }
+function extractHandoffFields(item) {
+ const text=[item.title,...item.messages.filter(m=>!m.out&&!m.internal).map(m=>m.text)].join(' ');
+ const vehicle=(item.vehicle||'').split(' · ')[0].trim();
+ const brands='Mercedes-Benz|Mercedes|Volkswagen|Škoda|Skoda|Toyota|Ford|BMW|Audi|Opel|Renault|Peugeot|Citroën|Volvo|VW';
+ const car=(vehicle.match(new RegExp('^('+brands+')\\s+(.+)$','i')) || text.match(new RegExp('\\b('+brands+')\\s+([A-Za-z0-9][A-Za-z0-9-]*)','i')));
+ const match=(pattern)=>{const m=text.match(pattern);return m?m[1]:''};
+ const year=item.year || match(/\b((?:19|20)\d{2})\s*(?:m\.?|metų)\b/i);
+ const engine=match(/\b([1-8][.,]\d)\s*(?:l(?:tr)?\.?|litro|litrai)\b/i).replace(',','.');
+ const power=match(/\b(\d{2,3})\s*k\s*w\b/i);
+ const fuel=match(/\b(dyzelinas|dyzelis|benzinas|elektra|hibridas)\b/i);
+ const vin=match(/\b([A-HJ-NPR-Z0-9]{17})\b/i).toUpperCase();
+ const mileage=match(/\b(?:rida\s*[:–-]?\s*)?(\d[\d\s]{2,7})\s*km\b/i).replace(/\s/g,'');
+ return {customer:item.customer||'', phone:item.phone||match(/(?:telefonas|tel\.?)\s*[:+]?\s*(\+?370[\s\d-]{7,15}|8[\s\d-]{7,12})/i), email:item.email||match(/\b([A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,})\b/i), make:car?car[1]:'', model:car?car[2]:'', year, engine, power, fuel, vin, mileage, plate:'', gearbox:''};
+}
+
+function handoffInfo(item) {
+ if (!item.handoff) return '<div class="handoff-box"><strong>Planuoklis</strong><span>Užsakymas dar nesukurtas</span><br><button class="btn" id="handoff-start">Perkelti į planuoklį</button></div>';
+ return '<div class="handoff-box"><strong>Įtrauktas į planuoklį</strong><span>Bandomasis užsakymas · '+esc(item.handoff.id)+'</span></div>';
+}
+function announce(s){$('#announce').textContent=s}
+function render(){
+ $('#profile-avatar').textContent=activeProfile.name.charAt(0);
+ $('#profile-name').textContent=activeProfile.name;
+ $('[data-view="crm"]').hidden=!plusEnabled;
+ $('[data-view="tasks"]').hidden=!plusEnabled;
+ $('#preview-basic').setAttribute('aria-pressed',String(!plusEnabled));
+ $('#preview-plus').setAttribute('aria-pressed',String(plusEnabled));
+ document.querySelectorAll('[data-view]').forEach(x=>x.classList.toggle('active',x.dataset.view===view));$('#inbox-count').textContent=data.length;$('#task-count').textContent=data.filter(x=>(x.owner===activeProfile.name && activeTask(x))).length;if(view==='inbox')inbox();else if(view==='analytics')analytics();else if(view==='crm' && plusEnabled)board();else if(view==='crm')upgradeView();else tasks()}
+function matchesScope(item) {
+ return (person==='all' || item.owner===person)
+  && [item.customer,item.title,item.vehicle,item.year,item.email,item.phone,item.id].join(' ').toLocaleLowerCase('lt').includes(query.toLocaleLowerCase('lt'));
+}
+function matches(item) {
+ if (!matchesScope(item)) return false;
+ if (filter==='all') return true;
+ if (filter==='closed' || filter==='won') return Boolean(item.won && !item.closed);
+ if (filter==='lost') return Boolean(item.closed);
+ if (item.closed) return false;
+ if (filter==='attention') return Boolean(item.attention || item.unansweredSince);
+ if (filter==='unassigned') return !item.owner;
+ return ageGroup(item)===filter;
+}
+function toolbar(){return '<div class="toolbar"><div class="filters"><button class="filter '+(filter==='all'?'active':'')+'" data-filter="all">Visi</button><button class="filter '+(filter==='attention'?'active':'')+'" data-filter="attention">Reikia dėmesio</button><button class="filter '+(filter==='unassigned'?'active':'')+'" data-filter="unassigned">Nepriskirti</button><button class="filter '+(filter==='closed'?'active':'')+'" data-filter="closed">Užbaigtos</button><button class="filter '+(filter==='won'?'active':'')+'" data-filter="won">Laimėtos</button><button class="filter '+(filter==='lost'?'active':'')+'" data-filter="lost">Pralaimėtos</button><select id="person" aria-label="Atsakingas"><option value="all">Visa komanda</option><option>Andrius</option><option>Rokas</option><option>Saulius</option></select></div><input class="search" type="search" placeholder="Ieškoti kliento, kontakto..." aria-label="Ieškoti" value="'+esc(query)+'"></div>'}
+function bindToolbar(){if(!plusEnabled){const unassigned=$('[data-filter="unassigned"]');if(unassigned)unassigned.hidden=true;$('#person').hidden=true}document.querySelectorAll('[data-filter]').forEach(b=>b.onclick=()=>{filter=b.dataset.filter;render()});$('#person').value=person;$('#person').onchange=e=>{person=e.target.value;render()};let s=$('.search');s.oninput=e=>{query=e.target.value;let start=e.target.selectionStart;render();$('.search').focus();$('.search').setSelectionRange(start,start)}}
+function responseSummary(){
+ const scope=data.filter(matchesScope);
+ return '<div class="response-summary" aria-label="Klientai laukia mūsų atsakymo"><span class="caption">Laukia mūsų atsakymo</span>'+ageLabels.map(([id,label])=>'<button class="age-button '+(id==='older'?'late ':'')+(filter===id?'active':'')+'" data-age="'+id+'" aria-pressed="'+(filter===id)+'"><span>'+label+'</span><strong>'+scope.filter(x=>ageGroup(x)===id).length+'</strong></button>').join('')+'<span class="response-note">Pagal pirmą neatsakytą žinutę · kalendorinės dienos</span></div>';
+}
+function conversation(item) {
+ const pendingIndex=ageGroup(item) ? item.messages.findLastIndex(message => !message.out && !message.internal) : -1;
+ const history=item.messages.map((message, index) => {
+  if (message.internal) {
+   return '<div class="internal-event">'+esc(message.text)
+    +'<time>'+esc(message.from)+' · '+esc(message.time)+'</time></div>';
+  }
+  const action=index===pendingIndex
+   ? '<button class="btn message-action" id="mark-result">Užfiksuoti rezultatą</button>' : '';
+  return '<div class="message '+(message.out?'out':'')+'"><div class="bubble">'+esc(message.text)
+   +'</div><div class="msgmeta">'+esc(message.from)+' · '+esc(message.time)+'</div>'+action+'</div>';
+ }).join('');
+ return '<div class="conversation"><div class="date">Pokalbio istorija</div>'+history+'</div>';
+}
+function documentList(item) {
+ return item.docs.length ? item.docs.map(doc=>'<div class="doc"><span>'+esc(doc)+'</span><span class="small">Pavyzdys</span></div>').join('')
+  : '<p class="small">Dokumentų dar nėra</p>';
+}
+function inbox(){
+ const list=data.filter(matches);if(!list.some(x=>x.id===selected))selected=list[0]?.id||'';const x=get();
+ root.innerHTML=responseSummary()+toolbar()+'<div class="workspace"><section class="list"><div class="listhead"><strong>Pokalbiai</strong><span>'+list.length+' pokalbiai</span></div><div id="items"></div></section><section class="thread" id="thread"></section><aside class="side" id="side"></aside></div>';
+ bindToolbar();document.querySelectorAll('[data-age]').forEach(b=>b.onclick=()=>{filter=filter===b.dataset.age?'all':b.dataset.age;render()});$('#items').innerHTML=list.length?list.map(y=>'<button class="item '+(y.id===selected?'active':'')+'" data-id="'+y.id+'"><div class="row"><strong>'+esc(y.customer)+'</strong><span class="time">'+esc(y.messages.at(-1).time)+'</span></div><div class="topic">'+esc(y.title)+'</div><div class="preview">'+esc(y.messages.at(-1).text)+'</div><div class="itemfoot"><span class="pill">'+esc(y.channel)+'</span>'+tag(y)+'</div>'+(y.unansweredSince?'<div class="unanswered-label">Laukia atsakymo · '+esc(ageLabels.find(a=>a[0]===ageGroup(y))[1])+'</div>':'')+'</button>').join(''):'<p class="empty">Pokalbių nerasta.</p>';
+ document.querySelectorAll('.item').forEach(b=>b.onclick=()=>{selected=b.dataset.id;draftId=null;render()});
+ if(!x){$('#thread').innerHTML='<p class="empty">Pasirinkite pokalbį.</p>';return}
+ const draftContract=draftId===x.id && draftType==='contract';
+ const draftAttachment=draftContract ? x.contract?.file : x.proposal;
+ const draftLabel=draftContract ? 'Sutartis' : 'Komercinis pasiūlymas';
+ const messageForm='<form class="compose" id="reply">'+(draftId===x.id?'<div class="draftbox"><strong>'+esc(draftLabel)+' · el. laiškas</strong><label for="recipient">Gavėjo el. paštas</label><input id="recipient" type="email" placeholder="klientas@pavyzdys.lt" value="'+esc(x.email)+'" required><label for="subject">Tema</label><input id="subject" value="'+esc(draftLabel)+' – '+esc(x.title)+'" required><div class="attachment">📎 '+esc(draftAttachment?.name)+'</div>'+'</div>':'')+'<textarea aria-label="Atsakymo tekstas" placeholder="Parašykite atsakymą..." required></textarea><div class="row"><span class="small">'+(draftId===x.id?'Bandomasis siuntimas · laiškas realiai nesiunčiamas':'Atsakoma per '+esc(x.channel)+' · demonstracija')+'</span><button class="btn primary">'+(draftId===x.id?(draftContract?'Siųsti sutartį':'Siųsti pasiūlymą'):'Išsaugoti atsakymą')+'</button></div></form>';
+ const closedBanner='<div class="compose closed-banner"><strong>Užklausa užbaigta · '+esc(x.closed?.reason)+'</strong><button class="btn" id="reopen">Atverti iš naujo</button></div>';
+ $('#thread').innerHTML='<div class="threadhead"><div class="row"><h2 id="thread-title" tabindex="-1">'+esc(x.customer)+'</h2>'+tag(x)+'</div><div class="line"><span>'+esc(x.id)+'</span><span class="inquiry-topic">'+esc(x.title)+'</span><span>'+esc(vehicleLabel(x)||'Automobilis nenurodytas')+'</span></div></div>'+conversation(x)+(x.closed ? closedBanner : messageForm);
+ if ($('#mark-result')) $('#mark-result').onclick=showResultDialog;
+ if (x.closed) {
+  $('#side').innerHTML='<div class="sidehead"><strong>Kliento byla</strong></div><div class="sidebody">'
+   +'<div class="field" '+(!plusEnabled?'hidden':'')+'><label>Atsakingas</label><b>'+esc(x.owner||'Nepriskirta')+'</b></div>'
+   +'<div class="field"><label>Baigtis</label><b>Klientas atsisakė · '+esc(x.closed.reason)+'</b></div>'+contactDetails(x)
+   +'<h3>Komercinis pasiūlymas</h3>'+proposalLabel(x)+sentInfo(x)
+   +'<h3 style="margin-top:20px">Dokumentai ir medžiaga</h3>'+documentList(x)+'</div>';
+  $('#reopen').onclick=()=>reopenInquiry(x);
+  return;
+ }
+
+ $('#side').innerHTML='<div class="sidehead"><strong>Kliento byla</strong></div><div class="sidebody"><div class="field"><label>Atsakingas</label><select id="owner" aria-label="Atsakingas žmogus"><option value="">Nepriskirta</option><option>Andrius</option><option>Rokas</option><option>Saulius</option></select></div>'+contactDetails(x)+'<div class="field"><label>Konversija · automatiškai</label><b>'+ (x.handoff ? 'Konvertuota · įtraukta į planuoklį' : 'Nekonvertuota · dar neįtraukta į planuoklį') +'</b></div><div class="field"><label>CRM etapas</label>'+(x.crm?'<select id="stage" aria-label="CRM etapas">'+stageOptions(x.stage)+'</select>':'<button class="btn" id="add-crm">+ Įtraukti į CRM</button>')+'</div>'+(x.crm?'<div class="handoff-box"><strong>Komercinis rezultatas</strong><span>'+(x.won?'Laimėta':'Vykdoma')+'</span><br><button class="btn" id="win-toggle">'+(x.won?'Atšaukti laimėjimą':'Pažymėti laimėta')+'</button></div>':'')+'<div class="taskbox"><strong>Kitas veiksmas</strong><p>'+esc(taskName(x)||'Veiksmas nesuplanuotas')+'</p><div class="row"><span class="small">'+esc(x.owner||'Nepriskirta')+(x.due?' · '+esc(x.due):'')+'</span><button class="small" id="edit-task">'+(taskName(x)?'Keisti':'Pridėti')+'</button></div></div><div class="base-hidden"><h3>Komercinis pasiūlymas</h3>'+proposalLabel(x)+attachInput(x)+(x.proposal?'<button class="btn primary sendproposal" id="send-proposal">Siųsti el. paštu</button>':'')+sentInfo(x)+waitingBadge(x)+(x.waiting?'<button class="btn attach" id="simulate-response">Imituoti kliento atsakymą</button>':'')+contractMarkup(x)+'</div>'+handoffInfo(x)+'<h3 style="margin-top:20px">Dokumentai ir medžiaga</h3>'+documentList(x)+'</div>';
+ if (!plusEnabled) {
+  $('#owner').closest('.field').hidden=true;
+  const stageControl=$('#stage') || $('#add-crm');
+  if (stageControl) stageControl.closest('.field').hidden=true;
+  if ($('#win-toggle')) $('#win-toggle').closest('.handoff-box').hidden=true;
+  $('.taskbox').hidden=true;
+  document.querySelectorAll('.base-hidden').forEach(el=>el.hidden=true);
+ }
+ bindAttachment(x);
+ if ($('#win-toggle')) $('#win-toggle').onclick=()=>{
+  x.won=!x.won;
+  recordInternal(x,x.won?'Užklausa pažymėta laimėta.':'Laimėjimo žyma atšaukta.');
+  if (!x.won && (filter==='won' || filter==='closed')) filter='all';
+  announce(x.won?'Užklausa pažymėta laimėta':'Laimėjimo žyma atšaukta');
+  render();
+ };
+ $('#attach-contract').onclick=()=>$('#contract-file').click();
+ $('#contract-file').onchange=event=>{
+  const file=event.currentTarget.files[0];
+  if (!file) return;
+  x.contract={...x.contract,file};
+  recordInternal(x,'Prikabinta sutartis · '+file.name+'.');
+  announce('Sutartis prikabinta');
+  render();
+ };
+ if ($('#send-contract')) $('#send-contract').onclick=()=>startDraft(x.id,'contract');
+ if ($('#confirm-contract')) $('#confirm-contract').onclick=()=>{$('#receipt-form').reset();$('#contract-receipt').showModal()};
+ if ($('#handoff-start')) $('#handoff-start').onclick=()=>{
+  $('#handoff-form').reset();
+  const fields=extractHandoffFields(x);
+  for (const [key,value] of Object.entries(fields)) { const field=$('#handoff-form').elements.namedItem(key); if(field) field.value=value; }
+  $('#handoff-form').elements.namedItem('note').value=x.title;
+  $('#handoff-dialog').showModal();
+ };
+ if($('#simulate-response'))$('#simulate-response').onclick=()=>{x.waiting=false;x.unansweredSince=new Date().toISOString();x.attention='Klientas atsakė';x.tone='amber';x.actionId=null;x.task='Peržiūrėti kliento atsakymą';x.taskForReply=true;x.messages.push({from:x.customer,time:'Dabar',text:'Gavau pasiūlymą. Noriu aptarti jo sąlygas.'});announce('Gautas bandomasis kliento atsakymas');render()};if($('#send-proposal'))$('#send-proposal').onclick=()=>startProposal(x.id);$('#owner').value=x.owner;$('#owner').onchange=e=>{x.owner=e.target.value;announce('Atsakingas pakeistas');render()};
+ if(x.crm){$('#stage').value=resolveStage(x.stage);$('#stage').onchange=e=>{changeStage(x,e.target.value)}}else $('#add-crm').onclick=()=>{x.crm=true;x.stage=resolveStage(newStage);announce('Byla įtraukta į CRM');render()};
+ $('#edit-task').onclick=()=>openActionDialog(x);
+ $('#reply').onsubmit=e=>{e.preventDefault();const val=e.target.querySelector('textarea').value.trim();if(!val)return;if(draftId===x.id && draftType==='contract'){
+  if (!x.contract?.file) {announce('Pirmiausia prikabinkite sutartį');return}
+  const sentAt=new Date(), recipient=$('#recipient').value.trim(), file=x.contract.file;
+  x.messages.push({from:activeProfile.name,time:sentAt.toLocaleString('lt-LT'),text:val+' · Gavėjas: '+recipient+' · Sutartis: '+file.name,out:true});
+  x.contract={...x.contract,sentAt:sentAt.toISOString(),sentFile:file.name,sentFileObject:file,recipient,subject:$('#subject').value.trim(),confirmedAt:null,method:''};
+  clearPendingReply(x);
+  if (x.attention==='Reikia išsiųsti sutartį') {x.attention='Laukiama sutarties patvirtinimo';x.tone='amber'}
+  if ((!x.actionId && x.task==='Parengti ir išsiųsti sutartį klientui') || x.actionId==='contract') {
+   x.actionId=null;x.task='Sulaukti sutarties patvirtinimo';
+  }
+  recordInternal(x,'Sutartis išsiųsta · '+file.name+'.');
+  draftId=null;
+  announce('Bandomasis sutarties išsiuntimas užfiksuotas');
+  render();return;
+ }if(draftId===x.id){if(!x.proposal){announce('Pirmiausia prikabinkite pasiūlymą');return}const sentAt=new Date();const to=$('#recipient').value.trim();x.messages.push({from:activeProfile.name,time:sentAt.toLocaleString('lt-LT'),text:val+' · Gavėjas: '+to+' · Pridėta: '+x.proposal.name,out:true});clearPendingReply(x);x.sentAt=sentAt.toISOString();x.sentProposal=x.proposal.name;x.waiting=true;x.crm=true;x.stage=resolveStage(waitingStage);x.attention='Laukiame atsakymo';x.tone='';x.actionId=resolveStage(waitingStage);x.task='';draftId=null;announce('Bandomasis pasiūlymo siuntimas išsaugotas');render();return}x.messages.push({from:activeProfile.name,time:'Dabar',text:val,out:true});clearPendingReply(x);announce('Atsakymas išsaugotas demonstracijoje');render()};
+}
+function upgradeView(){
+ root.innerHTML='<section class="upgrade"><div class="upgrade-content"><h2>CRM lenta su Marketingas+</h2><p>Matykite užklausų eigą stulpeliuose, paskirstykite atsakomybes ir sekite pasiūlymus iki kliento sprendimo.</p><button class="btn primary" id="try-plus">Peržiūrėti Marketingas+</button></div></section>';
+ $('#try-plus').onclick=()=>{plusEnabled=true;render();announce('Rodoma Marketingas+ peržiūra')};
+}
+function board(){
+ const list=data.filter(x=>x.crm&&matches(x));
+ const isLost=item=>Boolean(item.closed);
+ const wonColumn='__won__';
+ const columns=filter==='closed'||filter==='won' ? [wonColumn] : filter==='lost' ? [resolveStage(lostStage)] : [...pipeline.map(stage=>stage.id),wonColumn];
+ const cardsIn=stage=>list.filter(item=>item.won && !isLost(item) ? stage===wonColumn : isLost(item) ? stage===resolveStage(lostStage) : resolveStage(item.stage)===stage);
+ root.innerHTML=toolbar()+'<div class="row board-note"><span class="meta">Komercinė eiga · '+list.length+'</span><div class="board-controls"><button class="btn" id="edit-pipeline">Redaguoti eigą</button><div class="settings"><label for="alert-days">Įspėti po</label><input type="number" id="alert-days" min="1" max="365" value="'+alertDays+'" aria-label="Įspėjimas po dienų"><span class="meta">dienų</span></div></div></div><div class="board">'+columns.map(s=>'<section class="column"'+(s===wonColumn || (s===resolveStage(lostStage) && pipeline.length>1)?'':' data-column="'+esc(s)+'"')+'><div class="colhead">'+esc(s===wonColumn?'Laimėta':stageName(s))+' <small>'+cardsIn(s).length+'</small></div><div class="cards">'+cardsIn(s).map(x=>'<article class="card"'+(x.closed || x.won?'':' draggable="true" data-card="'+x.id+'"')+'><div class="row"><span class="small">'+x.id+'</span>'+tag(x)+'</div><button data-open="'+x.id+'"><h3>'+esc(x.title)+'</h3><p>'+esc(x.customer)+' · '+esc(vehicleLabel(x))+'</p></button>'+(x.closed?'<p>Priežastis · '+esc(x.closed.reason)+'</p>'+sentInfo(x):x.won?'<p>'+esc(taskName(x)||'Komercinis laimėjimas')+'</p>'+sentInfo(x):'<p>'+esc(taskName(x))+'</p>'+contractCard(x)+waitingBadge(x)+sentInfo(x)+(x.proposal?'<div class="attachment"><span>📎 '+esc(x.proposal.name)+'</span></div><button class="btn primary sendproposal" data-send="'+x.id+'">Siųsti el. paštu</button>':'')+'<input class="sr" type="file" id="file-'+x.id+'" accept=".pdf,.doc,.docx,.xls,.xlsx"><button class="btn attach" data-attach="'+x.id+'">'+(x.proposal?'Pakeisti pasiūlymą':'Prikabinti pasiūlymą')+'</button><div class="row"><span class="small">'+esc(x.owner||'Nepriskirta')+(x.due?' · '+esc(x.due):'')+'</span><strong class="small">'+esc(x.value)+'</strong></div><select aria-label="Keisti '+x.id+' etapą" data-move="'+x.id+'">'+stageOptions(s)+'</select>')+'</article>').join('')+'</div></section>').join('')+'</div>';
+ bindToolbar();$('#edit-pipeline').onclick=openPipeline;$('#alert-days').onchange=e=>{const n=Number(e.target.value);if(Number.isInteger(n)&&n>=1&&n<=365){alertDays=n;announce('Įspėjimas nustatytas po '+n+' dienų');render()}else{e.target.value=alertDays;announce('Įveskite nuo 1 iki 365 dienų')}};document.querySelectorAll('[data-send]').forEach(b=>b.onclick=()=>startProposal(b.dataset.send));document.querySelectorAll('[data-attach]').forEach(b=>{const input=document.getElementById('file-'+b.dataset.attach);b.onclick=()=>input.click();input.onchange=()=>{const file=input.files[0];if(!file)return;data.find(x=>x.id===b.dataset.attach).proposal={name:file.name,file};announce('Pasiūlymas prikabintas');render()}});document.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>{selected=b.dataset.open;view='inbox';filter='all';person='all';query='';render()});document.querySelectorAll('[data-move]').forEach(s=>s.onchange=()=>{changeStage(data.find(x=>x.id===s.dataset.move),s.value)});
+ document.querySelectorAll('[data-card]').forEach(c=>c.ondragstart=e=>e.dataTransfer.setData('text/plain',c.dataset.card));document.querySelectorAll('[data-column]').forEach(col=>{col.ondragover=e=>e.preventDefault();col.ondrop=e=>{e.preventDefault();const x=data.find(d=>d.id===e.dataTransfer.getData('text/plain'));if(x){changeStage(x,col.dataset.column)}}});
+}
+
+function analytics(){
+ const now=new Date(), start=new Date(now.getFullYear(),now.getMonth(),1), prev=new Date(now.getFullYear(),now.getMonth()-1,1), nextMonth=new Date(now.getFullYear(),now.getMonth()+1,1);
+ const valid=data.filter(x=>x.receivedAt && !Number.isNaN(new Date(x.receivedAt).getTime()));
+ const current=valid.filter(x=>new Date(x.receivedAt)>=start && new Date(x.receivedAt)<nextMonth);
+ const previous=valid.filter(x=>new Date(x.receivedAt)>=prev && new Date(x.receivedAt)<start);
+ const days=now.getDate(), count=current.length, target=current.filter(x=>x.handoff), info=current.filter(x=>!x.handoff);
+ const avg=n=>n.toLocaleString('lt-LT',{maximumFractionDigits:1});
+ const change=previous.length ? ((count-previous.length)/previous.length*100).toLocaleString('lt-LT',{maximumFractionDigits:0})+' %' : 'Nėra palyginimo';
+ const channels=[...new Set(current.map(x=>x.channel))];
+ root.innerHTML='<section><h2>Komunikacijos analitika</h2><p class="meta">Demonstraciniai duomenys · skaičiuojamos naujos užklausos / pokalbiai, ne kiekviena žinutė. Einamasis mėnuo dar nepasibaigęs.</p><div class="analytics-grid">'+[['Šį mėnesį',count],['Praėjusį mėnesį',previous.length],['Pokytis',change],['Vidutiniškai per dieną',avg(count/days)],['Vidutiniškai per savaitę',avg(count/days*7)],['2 mėn. vidurkis (šis mėnuo dar vyksta)',avg((count+previous.length)/2)]].map(([k,v])=>'<div class="taskbox"><strong>'+k+'</strong><p style="font-size:24px">'+v+'</p></div>').join('')+'</div><h3>Užklausų statusas · šį mėnesį</h3><p>Konvertuotos · įtrauktos į planuoklį: <b>'+target.length+'</b> · Nekonvertuotos · dar neįtrauktos: <b>'+info.length+'</b></p><p class="meta">Dar neįtraukta užklausa gali būti aktuali ir vėliau tapti konvertuota.</p><h3>Konversija į planuoklį · šio mėnesio užklausos</h3><p><b>'+(count?avg(target.length/count*100)+' %':'–')+'</b> · '+target.length+' iš '+count+' užklausų perduota</p><p class="meta">Užklausa tampa konvertuota tik išsaugojus užsakymą planuoklyje, ne vien atidarius kortelę. Rodiklis skaičiuojamas pagal gavimo mėnesį ir pradinį kanalą.</p><h3>Pagal kanalą</h3>'+ (channels.length?channels.map(c=>{const group=current.filter(x=>x.channel===c), t=group.filter(x=>x.handoff);return '<p>'+esc(c)+' · '+group.length+' užkl. · '+t.length+'/'+group.length+' perduota ('+(group.length?avg(t.length/group.length*100)+' %':'–')+')</p>'}).join(''):'<p class="meta">Šį mėnesį užklausų nėra.</p>')+'</section>';
+}
+
+function tasks(){const items=data.filter(x=>(x.owner===activeProfile.name && activeTask(x)));root.innerHTML='<div class="toolbar"><div><strong>Mano darbai · '+esc(activeProfile.name)+'</strong><p class="meta">Priskirtos užklausos ir kiti veiksmai</p></div></div><div class="tasklist">'+items.map(x=>'<button class="taskrow" style="width:100%;text-align:left" data-task="'+x.id+'"><strong>'+esc(taskName(x))+'</strong><span>'+esc(x.customer)+' · '+esc(x.title)+'</span><span>'+esc(x.due)+'</span>'+tag(x)+'</button>').join('')+'</div>';document.querySelectorAll('[data-task]').forEach(b=>b.onclick=()=>{selected=b.dataset.task;view='inbox';filter='all';person='all';query='';render()})}
+document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>{view=b.dataset.view;draftId=null;filter='all';person='all';query='';render()});
+$('#receipt-form').onsubmit=event=>{
+ event.preventDefault();
+ const x=get(),values=new FormData(event.currentTarget),method=values.get('method');
+ if (!x?.contract?.sentAt || !method || x.contract.confirmedAt) return;
+ x.contract.confirmedAt=new Date().toISOString();
+ x.contract.method=method;
+ x.contract.note=values.get('note').trim();
+ if (x.attention==='Laukiama sutarties patvirtinimo'){x.attention='Sutartis patvirtinta';x.tone='green'}
+ if (x.task==='Sulaukti sutarties patvirtinimo'){x.task='Perkelti į planuoklį';x.actionId=resolveStage(readyStage)}
+ recordInternal(x,'Sutarties patvirtinimas · '+method+(x.contract.note?' · '+x.contract.note:'')+'.');
+ $('#contract-receipt').close();announce('Sutarties patvirtinimas užfiksuotas');render();
+};
+$('#cancel-receipt').onclick=()=>$('#contract-receipt').close();
+$('#handoff-form').onsubmit=event=>{
+ event.preventDefault();
+ const item=get();
+ const values=new FormData(event.currentTarget);
+ const note=values.get('note').trim();
+ if (!item || item.closed || item.handoff || !note) return;
+ const card=Object.fromEntries(['customer','phone','email','make','model','year','engine','power','plate','fuel','gearbox','vin','mileage'].map(key=>[key,String(values.get(key)||'').trim()]));
+ item.handoff={id:'P-'+String(nextHandoff++).padStart(4,'0'),note,card,status:'saved',transferredAt:new Date().toISOString()};
+ if (plusEnabled && item.crm) item.stage=resolveStage(planningStage);
+ item.waiting=false;
+ item.actionId=null;
+ item.task='';
+ item.due='';
+ recordInternal(item,'Užsakymas išsaugotas planuoklyje · '+item.handoff.id+' (demonstracija).');
+ $('#handoff-dialog').close();
+ announce('Bandomasis užsakymas išsaugotas planuoklyje');
+ render();
+};
+$('#cancel-handoff').onclick=()=>$('#handoff-dialog').close();
+$('#result-form').onchange=updateReasonField;
+$('#result-form').onsubmit=saveResult;
+$('#cancel-result').onclick=()=>$('#result-dialog').close();
+$('#preview-basic').onclick=()=>{plusEnabled=false;if(view==='crm' || view==='tasks')view='inbox';if(filter==='unassigned')filter='all';person='all';render();announce('Rodoma Marketingas peržiūra')};
+$('#preview-plus').onclick=()=>{plusEnabled=true;render();announce('Rodoma Marketingas+ peržiūra')};
+$('#add').onclick=()=>{
+ $('#create-action').parentElement.hidden=!plusEnabled;
+ $('#create-owner').parentElement.hidden=!plusEnabled;
+ $('#create-action').innerHTML=actionOptions();
+ $('#create-action').value=resolveStage(newStage);
+ $('#create-owner').value=activeProfile.name;
+ $('#create-actor').textContent=activeProfile.name;
+ $('#create').showModal();
+};
+$('#cancel').onclick=()=>$('#create').close();
+$('#create-form').onsubmit=event=>{
+ event.preventDefault();
+ const form=event.currentTarget;
+ const details=Object.fromEntries([...new FormData(form)].map(([key,value])=>[key,value.trim()]));
+ if (!details.customer || !details.title) return;
+ if (!plusEnabled) details.owner='';
+ const item={
+  ...details, receivedAt:new Date().toISOString(), id:'U-'+next++, crm:plusEnabled, stage:resolveStage(newStage), createdBy:activeProfile.id,
+  attention:'Nauja užklausa', tone:'amber', due:'Šiandien', value:'', messages:[], docs:[]
+ };
+ recordInternal(item,'Užregistruota nauja užklausa.');
+ data.unshift(item);
+ selected=item.id;
+ view='inbox';
+ filter='all';
+ person='all';
+ query='';
+ draftId=null;
+ $('#create').close();
+ form.reset();
+ announce('Užklausa sukurta');
+ render();
+};
+$('#pipeline-form').onsubmit=savePipeline;
+$('#cancel-pipeline').onclick=()=>$('#pipeline-dialog').close();
+$('#add-stage').onclick=()=>{
+ const id='custom-'+crypto.randomUUID();
+ const terminal=Array.from($('#pipeline-fields').children).find(row=>row.dataset.stageId===resolveStage(lostStage)) || null;
+ appendStageRow({id,name:'',action:''},terminal).focus();
+};
+$('#cancel-action').onclick=()=>$('#action-dialog').close();
+$('#action-form').onsubmit=event=>{
+ event.preventDefault();
+ const item=get();
+ item.actionId=$('#change-action').value;
+ item.taskForReply=false;
+ recordInternal(item,'Kitas veiksmas · '+taskName(item)+'.');
+ $('#action-dialog').close();
+ render();
+ $('#edit-task').focus();
+ announce('Kitas veiksmas išsaugotas');
+};
+$('#profile-button').onclick=()=>{
+ $('#profile-form').reset();
+ $('#profile-form input').setCustomValidity('');
+ $('#profile-dialog').showModal();
+};
+$('#cancel-profile').onclick=()=>$('#profile-dialog').close();
+$('#profile-form input').oninput=event=>event.target.setCustomValidity('');
+$('#profile-form').onsubmit=event=>{
+ event.preventDefault();
+ const input=event.currentTarget.elements.pin;
+ const profile=demoProfiles.find(entry=>entry.pin===input.value);
+ if (!profile) {
+  input.setCustomValidity('Bandomasis PIN neatpažintas.');
+  input.reportValidity();
+  return;
+ }
+ activeProfile=profile;
+ $('#profile-dialog').close();
+ render();
+ announce('Aktyvus profilis · '+profile.name);
+};
+render();
+</script></body></html>
